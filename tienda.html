@@ -9,6 +9,102 @@
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Estilos para las pestañas */
+    .tabs {
+      max-width: 1000px;
+      margin: 2rem auto;
+    }
+
+    .tabs input[type="radio"] {
+      display: none;
+    }
+
+    .tabs label {
+      padding: 0.7rem 1.2rem;
+      background: var(--morado);
+      color: white;
+      margin-right: 5px;
+      border-radius: 12px 12px 0 0;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .tabs label:hover {
+      background: #c19adf;
+    }
+
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      background: var(--rosa);
+      border-radius: 0 0 12px 12px;
+    }
+
+    /* Mostrar el contenido de la pestaña seleccionada */
+    input#tab1:checked ~ #content1,
+    input#tab2:checked ~ #content2,
+    input#tab3:checked ~ #content3,
+    input#tab4:checked ~ #content4,
+    input#tab5:checked ~ #content5,
+    input#tab6:checked ~ #content6,
+    input#tab7:checked ~ #content7 {
+      display: block;
+    }
+
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+
+    .producto {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+
+    .producto img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+
+    .producto h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+
+    .producto p {
+      margin-bottom: 0.5rem;
+    }
+
+    .producto span {
+      display: block;
+      margin: 0.5rem 0;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .btn {
+      background-color: var(--morado);
+      color: #fff;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 25px;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #c19adf;
+    }
+  </style>
 </head>
 <body>
 
@@ -24,31 +120,123 @@
     </nav>
   </header>
 
-  <main>
-    <section class="productos">
-      <h2>Nuestros Productos</h2>
+  <main class="tabs">
 
-      <!-- Producto 1 -->
-      <div class="producto">
-        <img src="assets/producto1.jpg" alt="Producto bebé 1" />
-        <h3>Babero Celeste</h3>
-        <p>Babero de algodón suave, ideal para recién nacidos.</p>
-        <span>₡4,500</span>
-        <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20babero%20celeste" class="btn" target="_blank">Comprar por WhatsApp</a>
+    <!-- Pestañas: Inputs ocultos y sus Labels -->
+    <input type="radio" name="tab" id="tab1" checked>
+    <label for="tab1">Coches</label>
+
+    <input type="radio" name="tab" id="tab2">
+    <label for="tab2">Encierros</label>
+
+    <input type="radio" name="tab" id="tab3">
+    <label for="tab3">Sillas de Comer</label>
+
+    <input type="radio" name="tab" id="tab4">
+    <label for="tab4">Sillas para Carro</label>
+
+    <input type="radio" name="tab" id="tab5">
+    <label for="tab5">Mesedoras</label>
+
+    <input type="radio" name="tab" id="tab6">
+    <label for="tab6">Colechos</label>
+
+    <input type="radio" name="tab" id="tab7">
+    <label for="tab7">Cunas</label>
+
+    <!-- Contenido para cada categoría -->
+
+    <!-- Coches -->
+    <div id="content1" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/coche1.jpg" alt="Coche Travel">
+          <h3>Coche Travel</h3>
+          <p>Coche ligero con cierre rápido y reclinable.</p>
+          <span>₡69,000</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20Coche%20Travel" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
       </div>
+    </div>
 
-      <!-- Producto 2 -->
-      <div class="producto">
-        <img src="assets/producto2.jpg" alt="Producto bebé 2" />
-        <h3>Set de Juguetes</h3>
-        <p>Set sensorial para bebés 100% seguro y sin BPA.</p>
-        <span>₡12,900</span>
-        <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20set%20de%20juguetes" class="btn" target="_blank">Comprar por WhatsApp</a>
+    <!-- Encierros -->
+    <div id="content2" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/encierro1.jpg" alt="Encierro Plegable">
+          <h3>Encierro Plegable</h3>
+          <p>Parque infantil plegable, seguro y portátil.</p>
+          <span>₡45,000</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20Encierro%20Plegable" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
       </div>
+    </div>
 
-      <!-- Agregá más productos copiando este bloque -->
+    <!-- Sillas de Comer -->
+    <div id="content3" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/silla_comer1.jpg" alt="Silla de Comer 3 en 1">
+          <h3>Silla de Comer 3 en 1</h3>
+          <p>Silla convertible en booster, fácil de limpiar.</p>
+          <span>₡39,000</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20Silla%20de%20Comer%203%20en%201" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
 
-    </section>
+    <!-- Sillas para Carro -->
+    <div id="content4" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/silla_carro1.jpg" alt="Silla de Carro ISOFIX">
+          <h3>Silla de Carro ISOFIX</h3>
+          <p>Silla con anclaje ISOFIX y múltiples posiciones.</p>
+          <span>₡59,900</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20Silla%20de%20Carro%20ISOFIX" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mesedoras -->
+    <div id="content5" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/mesedora1.jpg" alt="Mesedora Musical">
+          <h3>Mesedora Musical</h3>
+          <p>Mesedora con vibración y música relajante.</p>
+          <span>₡29,500</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20Mesedora%20Musical" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Colechos -->
+    <div id="content6" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/colecho1.jpg" alt="Colecho Ajustable">
+          <h3>Colecho Ajustable</h3>
+          <p>Cuna colecho con altura ajustable y ruedas.</p>
+          <span>₡55,000</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20Colecho%20Ajustable" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cunas -->
+    <div id="content7" class="tab-content">
+      <div class="productos">
+        <div class="producto">
+          <img src="assets/cuna1.jpg" alt="Cuna Convertible">
+          <h3>Cuna Convertible</h3>
+          <p>Cuna que se transforma en cama infantil.</p>
+          <span>₡120,000</span>
+          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20Cuna%20Convertible" class="btn" target="_blank">Comprar por WhatsApp</a>
+        </div>
+      </div>
+    </div>
+
   </main>
 
   <footer>
