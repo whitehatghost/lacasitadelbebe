@@ -4,17 +4,96 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Contacto | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
+  <style>
+    form {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 2rem;
+      background: var(--rosa);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 1rem;
+    }
+
+    form input:focus, form textarea:focus {
+      outline: 2px solid var(--celeste);
+    }
+
+    form button {
+      background: var(--morado);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+
+    form button:hover {
+      background: #c19adf;
+    }
+
+    .info-contacto {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1rem;
+      background: var(--celeste);
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    .info-contacto a {
+      color: #000;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .floating-buttons img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      padding: 6px;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .floating-buttons img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
 
   <header>
     <nav>
-      <h1>La Casita del Bebé</h1>
+      <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tienda.html">Tienda</a></li>
@@ -25,32 +104,49 @@
   </header>
 
   <main>
-    <section class="contacto">
-      <h2>Contacto</h2>
-      <p>Escribinos si tenés dudas o querés hacer un pedido especial.</p>
-      <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
-        <input type="hidden" name="form-name" value="contact">
-        <p class="hidden">
+    <section class="formulario">
+      <h2 style="text-align: center;">Contáctanos</h2>
+      <form name="contact" method="POST" data-netlify="true" autocomplete="off" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none;">
           <label>No llenar: <input name="bot-field" /></label>
         </p>
-        <label for="nombre">Nombre:</label>
-        <input type="text" name="nombre" id="nombre" required pattern="[A-Za-zÁÉÍÓÚáéíóúñÑ\s]+" title="Solo letras" />
 
-        <label for="email">Correo electrónico:</label>
-        <input type="email" name="email" id="email" required />
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="100" pattern="[A-Za-zÁÉÍÓÚÑáéíóúñ ]{2,100}" title="Solo letras y espacios" />
 
-        <label for="mensaje">Mensaje:</label>
-        <textarea name="mensaje" id="mensaje" rows="5" required minlength="5" maxlength="500"></textarea>
+        <label for="correo">Correo electrónico</label>
+        <input type="email" name="correo" id="correo" required maxlength="120" />
 
-        <button type="submit" class="btn">Enviar mensaje</button>
+        <label for="mensaje">Mensaje</label>
+        <textarea name="mensaje" id="mensaje" required minlength="5" maxlength="1000" rows="6" placeholder="Escribí tu mensaje..."></textarea>
+
+        <button type="submit">Enviar</button>
       </form>
+    </section>
 
-      <div class="info-contacto">
-        <p><strong>WhatsApp:</strong> <span style="color: #FFD700; font-weight: bold;">+506 8426 8083</span></p>
-        <p><strong>Instagram:</strong> <a href="https://instagram.com/lacasitadelbebe_cr" target="_blank">@lacasitadelbebe_cr</a></p>
-      </div>
+    <section class="info-contacto">
+      <p>📍 <strong>Grecia, Alajuela</strong></p>
+      <p>🚚 Realizamos envíos a todo el país por Correos de Costa Rica</p>
+      <p>📆 Sistema de apartados a 3 meses</p>
+      <p>📱 WhatsApp: <strong>8426-8083</strong></p>
+      <p>👶 Artículos para bebés 🤰🍼</p>
+      <p>
+        📌 Dirección: 300 metros Oeste y 75 Sur del palacio Municipal de Grecia, diagonal a Floristería Amaranto, Grecia, Costa Rica<br>
+        <a href="https://www.google.com/maps/place/La+Casita+del+Bebé/@10.071969,-84.308062,18z" target="_blank">Ver en Google Maps</a>
+      </p>
     </section>
   </main>
+
+  <!-- Botones flotantes -->
+  <div class="floating-buttons">
+    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
+      <img src="assets/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://instagram.com/lacasitadelbebe_cr" target="_blank" title="Instagram">
+      <img src="assets/instagram.png" alt="Instagram">
+    </a>
+  </div>
 
   <footer>
     <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
