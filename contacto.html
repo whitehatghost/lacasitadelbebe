@@ -10,6 +10,22 @@
   <title>Contacto | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    .info-contacto {
+      max-width: 600px;
+      margin: 2rem auto;
+      text-align: center;
+      font-size: 1rem;
+      background: var(--celeste);
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+
+    .info-contacto a {
+      color: #000;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+
     form {
       max-width: 600px;
       margin: 40px auto;
@@ -47,22 +63,6 @@
       background: #c19adf;
     }
 
-    .info-contacto {
-      max-width: 600px;
-      margin: 2rem auto;
-      text-align: center;
-      font-size: 1rem;
-      background: var(--celeste);
-      padding: 1.5rem;
-      border-radius: 12px;
-    }
-
-    .info-contacto a {
-      color: #000;
-      text-decoration: underline;
-      font-weight: bold;
-    }
-
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -87,6 +87,14 @@
     .floating-buttons img:hover {
       transform: scale(1.1);
     }
+
+    .mapa {
+      max-width: 1000px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+    }
   </style>
 </head>
 <body>
@@ -104,6 +112,36 @@
   </header>
 
   <main>
+
+    <!-- Información de contacto -->
+    <section class="info-contacto">
+      <p>📍 <strong>Grecia, Alajuela</strong></p>
+      <p>🚚 Realizamos envíos a todo el país por Correos de Costa Rica</p>
+      <p>📆 Sistema de apartados a 3 meses</p>
+      <p>📱 WhatsApp: <strong>8426-8083</strong></p>
+      <p>👶 Artículos para bebés 🤰🍼</p>
+      <p>
+        📌 Dirección: 300 metros Oeste y 75 Sur del palacio Municipal de Grecia, diagonal a Floristería Amaranto, Grecia, Costa Rica
+      </p>
+      <p>
+        <a href="https://www.google.com/maps/place/La+Casita+del+Bebé/@10.0738616,-84.3105698,19z" target="_blank">Ver en Google Maps</a>
+      </p>
+    </section>
+
+    <!-- Mapa embebido -->
+    <section class="mapa">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.140711790852!2d-84.31192902403161!3d10.073863790036503!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fbe0903312c9%3A0x582b04a542e53a6!2sLa%20Casita%20del%20Beb%C3%A9!5e0!3m2!1ses-419!2scr!4v1714954448104!5m2!1ses-419!2scr" 
+        width="100%" 
+        height="400" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
+
+    <!-- Formulario al final -->
     <section class="formulario">
       <h2 style="text-align: center;">Contáctanos</h2>
       <form name="contact" method="POST" data-netlify="true" autocomplete="off" netlify-honeypot="bot-field">
@@ -125,31 +163,6 @@
       </form>
     </section>
 
-    <section class="info-contacto">
-      <p>📍 <strong>Grecia, Alajuela</strong></p>
-      <p>🚚 Realizamos envíos a todo el país por Correos de Costa Rica</p>
-      <p>📆 Sistema de apartados a 3 meses</p>
-      <p>📱 WhatsApp: <strong>8426-8083</strong></p>
-      <p>👶 Artículos para bebés 🤰🍼</p>
-      <p>
-        📌 Dirección: 300 metros Oeste y 75 Sur del palacio Municipal de Grecia, diagonal a Floristería Amaranto, Grecia, Costa Rica
-      </p>
-      <p>
-        <a href="https://www.google.com/maps/place/La+Casita+del+Bebé/@10.071969,-84.308062,18z" target="_blank">Ver en Google Maps</a>
-      </p>
-    </section>
-
-    <section style="max-width: 1000px; margin: 2rem auto; border-radius: 12px; overflow: hidden; box-shadow: 0 0 10px rgba(0,0,0,0.15);">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.1472323142984!2d-84.3102500240316!3d10.071968790037842!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0fbe0903312c9%3A0x582b04a542e53a6!2sLa%20Casita%20del%20Beb%C3%A9!5e0!3m2!1ses!2scr!4v1714927271484!5m2!1ses!2scr" 
-        width="100%" 
-        height="400" 
-        style="border:0;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
-    </section>
   </main>
 
   <!-- Botones flotantes -->
