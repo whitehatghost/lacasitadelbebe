@@ -4,12 +4,11 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
   <style>
     .tabs {
       max-width: 1000px;
@@ -94,26 +93,18 @@
       z-index: 1000;
     }
 
-    .floating-buttons a {
-      display: inline-block;
+    .floating-buttons img {
       width: 50px;
       height: 50px;
       border-radius: 50%;
-      background-color: #25d366;
-      color: white;
-      text-align: center;
-      font-size: 26px;
-      line-height: 50px;
-      text-decoration: none;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      object-fit: cover;
+      padding: 6px;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
 
-    .floating-buttons a.instagram {
-      background-color: #d62976;
-    }
-
-    .floating-buttons a:hover {
+    .floating-buttons img:hover {
       transform: scale(1.1);
     }
   </style>
@@ -122,7 +113,7 @@
 
   <header>
     <nav>
-      <h1>La Casita del Bebé</h1>
+      <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tienda.html">Tienda</a></li>
@@ -134,27 +125,16 @@
 
   <main class="tabs">
 
-    <input type="radio" name="tab" id="tab1" checked>
-    <label for="tab1">Coches</label>
+    <!-- Categorías -->
+    <input type="radio" name="tab" id="tab1" checked><label for="tab1">Coches</label>
+    <input type="radio" name="tab" id="tab2"><label for="tab2">Encierros</label>
+    <input type="radio" name="tab" id="tab3"><label for="tab3">Sillas de Comer</label>
+    <input type="radio" name="tab" id="tab4"><label for="tab4">Sillas para Carro</label>
+    <input type="radio" name="tab" id="tab5"><label for="tab5">Mesedoras</label>
+    <input type="radio" name="tab" id="tab6"><label for="tab6">Colechos</label>
+    <input type="radio" name="tab" id="tab7"><label for="tab7">Cunas</label>
 
-    <input type="radio" name="tab" id="tab2">
-    <label for="tab2">Encierros</label>
-
-    <input type="radio" name="tab" id="tab3">
-    <label for="tab3">Sillas de Comer</label>
-
-    <input type="radio" name="tab" id="tab4">
-    <label for="tab4">Sillas para Carro</label>
-
-    <input type="radio" name="tab" id="tab5">
-    <label for="tab5">Mesedoras</label>
-
-    <input type="radio" name="tab" id="tab6">
-    <label for="tab6">Colechos</label>
-
-    <input type="radio" name="tab" id="tab7">
-    <label for="tab7">Cunas</label>
-
+    <!-- Contenido de cada categoría -->
     <div id="content1" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -162,7 +142,7 @@
           <h3>Coche Travel</h3>
           <p>Coche ligero con cierre rápido y reclinable.</p>
           <span>₡69,000</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20coche%20Travel" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Travel" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -174,7 +154,7 @@
           <h3>Encierro Plegable</h3>
           <p>Parque infantil plegable, seguro y portátil.</p>
           <span>₡45,000</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20encierro%20plegable" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Encierro%20Plegable" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -186,7 +166,7 @@
           <h3>Silla de Comer 3 en 1</h3>
           <p>Silla convertible en booster, fácil de limpiar.</p>
           <span>₡39,000</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20silla%20de%20comer%203%20en%201" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20la%20Silla%20de%20Comer%203%20en%201" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -198,7 +178,7 @@
           <h3>Silla de Carro ISOFIX</h3>
           <p>Silla con anclaje ISOFIX y múltiples posiciones.</p>
           <span>₡59,900</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20silla%20de%20carro%20ISOFIX" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20la%20Silla%20de%20Carro%20ISOFIX" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -210,7 +190,7 @@
           <h3>Mesedora Musical</h3>
           <p>Mesedora con vibración y música relajante.</p>
           <span>₡29,500</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20mesedora%20musical" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20la%20Mesedora%20Musical" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -222,7 +202,7 @@
           <h3>Colecho Ajustable</h3>
           <p>Cuna colecho con altura ajustable y ruedas.</p>
           <span>₡55,000</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20el%20colecho%20ajustable" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Colecho%20Ajustable" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
@@ -234,23 +214,26 @@
           <h3>Cuna Convertible</h3>
           <p>Cuna que se transforma en cama infantil.</p>
           <span>₡120,000</span>
-          <a href="https://wa.me/50684268083?text=Hola%2C%20quiero%20comprar%20la%20cuna%20convertible" class="btn" target="_blank">Comprar por WhatsApp</a>
+          <a href="https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20la%20Cuna%20Convertible" class="btn" target="_blank">Comprar por WhatsApp</a>
         </div>
       </div>
     </div>
 
   </main>
 
+  <!-- Botones flotantes con imágenes personalizadas -->
   <div class="floating-buttons">
-    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/lacasitadelbebe_cr" class="instagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
+      <img src="assets/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://instagram.com/lacasitadelbebe_cr" target="_blank" title="Instagram">
+      <img src="assets/instagram.png" alt="Instagram">
+    </a>
   </div>
 
   <footer>
     <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
 
-</body>
-</html>
 </body>
 </html>
