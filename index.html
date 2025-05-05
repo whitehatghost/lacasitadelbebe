@@ -4,12 +4,34 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Inicio | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+
+    .floating-buttons img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+
+    .floating-buttons img:hover {
+      transform: scale(1.1);
+    }
+  </style>
 </head>
 <body>
 
@@ -39,15 +61,21 @@
     </section>
   </main>
 
-  <!-- Botones flotantes -->
+  <!-- Botones flotantes con imágenes -->
   <div class="floating-buttons">
-    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
-    <a href="https://instagram.com/lacasitadelbebe_cr" class="instagram" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
+      <img src="assets/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://instagram.com/lacasitadelbebe_cr" target="_blank" title="Instagram">
+      <img src="assets/instagram.png" alt="Instagram">
+    </a>
   </div>
 
   <footer>
     <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
 
+</body>
+</html>
 </body>
 </html>
