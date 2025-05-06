@@ -96,13 +96,39 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
       background: var(--blanco);
     }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .nombre-tienda {
+      font-size: 1.4rem;
+      font-weight: bold;
+      color: var(--morado);
+    }
+
+    @media (max-width: 768px) {
+      .nombre-tienda {
+        font-size: 1.2rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <nav>
-      <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+      <div class="logo-container">
+        <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+        <span class="nombre-tienda">La Casita del Bebé</span>
+      </div>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tienda.html">Tienda</a></li>
