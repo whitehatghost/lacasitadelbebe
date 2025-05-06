@@ -13,6 +13,7 @@
     .tabs {
       max-width: 1000px;
       margin: 40px auto;
+      padding: 0 1rem;
     }
     .tabs input[type="radio"] {
       display: none;
@@ -72,13 +73,18 @@
       font-weight: bold;
       color: #555;
     }
+    .producto div {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
     .color-circle {
       width: 20px;
       height: 20px;
       border-radius: 50%;
       border: 1px solid #ccc;
       display: inline-block;
-      margin: 5px;
       cursor: pointer;
     }
     .floating-buttons {
@@ -111,18 +117,11 @@
         text-align: center;
         border-radius: 12px;
       }
-      .tabs {
-        padding: 0 1rem;
-      }
     }
   </style>
 </head>
 <body>
-  <header>
-    <nav>
-      <div style="display: flex; align-items: center; gap: 15px;">
-        <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
-        <span style="font-size: 1.4rem; font-weight: bold; color: var(--morado);">La Casita del Bebé</span>
+<body>
       </div>
       <ul>
         <li><a href="index.html">Inicio</a></li>
