@@ -7,9 +7,75 @@
   <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
-  <title>Inicio | La Casita del Bebé</title>
+  <title>La Casita del Bebé | Inicio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+      background: var(--blanco);
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .nombre-tienda {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--morado);
+      text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+    }
+
+    header {
+      background: var(--celeste);
+      padding: 1rem;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+      padding: 0;
+      margin: 0;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .bienvenida {
+      text-align: center;
+      padding: 3rem 1rem;
+      background: var(--amarillo);
+    }
+
+    .bienvenida h1 {
+      font-size: 2rem;
+      color: #444;
+    }
+
+    .bienvenida p {
+      font-size: 1.1rem;
+      color: #666;
+    }
+
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -34,13 +100,44 @@
     .floating-buttons img:hover {
       transform: scale(1.1);
     }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background: var(--morado);
+      color: white;
+    }
+
+    footer a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      nav ul {
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .nombre-tienda {
+        font-size: 1.3rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <header>
     <nav>
-      <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+      <div class="logo-container">
+        <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+        <span class="nombre-tienda">La Casita del Bebé</span>
+      </div>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tienda.html">Tienda</a></li>
@@ -50,21 +147,14 @@
     </nav>
   </header>
 
-  <main style="margin-top: 30px;">
-    <!-- Banner principal -->
-    <section class="banner">
-      <img src="assets/banner.jpg" alt="Banner La Casita del Bebé" class="banner-img" />
-    </section>
-
-    <!-- Sección bienvenida -->
+  <main>
     <section class="bienvenida">
-      <h2>Bienvenidos a La Casita del Bebé 👶</h2>
-      <p>Descubrí artículos encantadores, seguros y adorables para tu bebé. Productos seleccionados con amor en 🇨🇷.</p>
-      <a href="tienda.html" class="btn">Ver productos</a>
+      <h1>Bienvenido a La Casita del Bebé</h1>
+      <p>Descubrí productos hermosos, seguros y cómodos para tu bebé. 🌈🍼</p>
     </section>
   </main>
 
-  <!-- Botones flotantes con imágenes -->
+  <!-- Botones flotantes -->
   <div class="floating-buttons">
     <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
       <img src="assets/whatsapp.png" alt="WhatsApp">
