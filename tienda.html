@@ -14,11 +14,9 @@
       max-width: 1000px;
       margin: 40px auto;
     }
-
     .tabs input[type="radio"] {
       display: none;
     }
-
     .tabs label {
       padding: 0.7rem 1.2rem;
       background: var(--morado);
@@ -29,18 +27,15 @@
       font-weight: bold;
       transition: background 0.3s;
     }
-
     .tabs label:hover {
       background: #c19adf;
     }
-
     .tab-content {
       display: none;
       padding: 2rem;
       background: var(--rosa);
       border-radius: 0 0 12px 12px;
     }
-
     input#tab1:checked ~ #content1,
     input#tab2:checked ~ #content2,
     input#tab3:checked ~ #content3,
@@ -50,13 +45,11 @@
     input#tab7:checked ~ #content7 {
       display: block;
     }
-
     .productos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
-
     .producto {
       background-color: var(--blanco);
       border-radius: 12px;
@@ -64,25 +57,30 @@
       text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
-
     .producto img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 1rem;
     }
-
     .producto h3 {
       color: #333;
       margin-bottom: 0.5rem;
     }
-
     .producto span {
       display: block;
       margin: 0.5rem 0;
       font-weight: bold;
       color: #555;
     }
-
+    .color-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+    }
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -92,7 +90,6 @@
       gap: 10px;
       z-index: 1000;
     }
-
     .floating-buttons img {
       width: 50px;
       height: 50px;
@@ -103,26 +100,9 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
-
     .floating-buttons img:hover {
       transform: scale(1.1);
     }
-
-    .color-button {
-      padding: 5px 10px;
-      margin: 5px 5px 10px;
-      border: none;
-      border-radius: 8px;
-      background-color: var(--morado);
-      color: white;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    .color-button:hover {
-      background-color: #b38cd9;
-    }
-
     @media (max-width: 768px) {
       .tabs label {
         display: block;
@@ -131,7 +111,6 @@
         text-align: center;
         border-radius: 12px;
       }
-
       .tabs {
         padding: 0 1rem;
       }
@@ -153,9 +132,7 @@
       </ul>
     </nav>
   </header>
-
   <main class="tabs">
-
     <input type="radio" name="tab" id="tab1" checked><label for="tab1">Coches</label>
     <input type="radio" name="tab" id="tab2"><label for="tab2">Encierros</label>
     <input type="radio" name="tab" id="tab3"><label for="tab3">Sillas de Comer</label>
@@ -163,127 +140,92 @@
     <input type="radio" name="tab" id="tab5"><label for="tab5">Mesedoras</label>
     <input type="radio" name="tab" id="tab6"><label for="tab6">Colechos</label>
     <input type="radio" name="tab" id="tab7"><label for="tab7">Cunas</label>
-
     <div id="content1" class="tab-content">
       <div class="productos">
         <!-- Coche Zircon Reversible -->
-        <div class="producto">
-          <img id="zircon-img" src="assets/coche-zircon-reversible-vino.jpg" alt="Coche Zircon Reversible" />
-          <h3>Coche Zircon Reversible</h3>
-          <p>Coche moderno con manillar reversible y variedad de colores.</p>
-          <div>
-            <button class="color-button" onclick="document.getElementById('zircon-img').src='assets/coche-zircon-reversible-vino.jpg'; zirconColor='vino';">Vino</button>
-            <button class="color-button" onclick="document.getElementById('zircon-img').src='assets/coche-zircon-reversible-rosa.jpg'; zirconColor='rosa';">Rosa</button>
-          </div>
-          <span>₡79,000</span>
-          <a id="zircon-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
-        </div>
+<div class="producto">
+  <img id="zircon-img" src="assets/coche-zircon-reversible-vino.jpg" alt="Coche Zircon Reversible" />
+  <h3>Coche Zircon Reversible</h3>
+  <p>Coche moderno con manillar reversible y variedad de colores.</p>
+  <div>
+    <span class="color-circle" style="background-color: #800000" onclick="document.getElementById('zircon-img').src='assets/coche-zircon-reversible-vino.jpg'; zirconColor='vino';"></span>
+    <span class="color-circle" style="background-color: #ffc0cb" onclick="document.getElementById('zircon-img').src='assets/coche-zircon-reversible-rosa.jpg'; zirconColor='rosa';"></span>
+  </div>
+  <span>₡79,000</span>
+  <a id="zircon-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
 
-        <!-- Coche Maleta Galaxy -->
-        <div class="producto">
-          <img id="galaxy-img" src="assets/coche-maleta-galaxy-azul.jpg" alt="Coche Maleta Galaxy" />
-          <h3>Coche Maleta Galaxy</h3>
-          <p>Coche tipo maleta con sistema de plegado compacto.</p>
-          <div>
-            <button class="color-button" onclick="document.getElementById('galaxy-img').src='assets/coche-maleta-galaxy-azul.jpg'; galaxyColor='azul';">Azul</button>
-            <button class="color-button" onclick="document.getElementById('galaxy-img').src='assets/coche-maleta-galaxy-rosa.jpg'; galaxyColor='rosa';">Rosa</button>
-          </div>
-          <span>₡72,000</span>
-          <a id="galaxy-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
-        </div>
+<!-- Coche Maleta Galaxy -->
+<div class="producto">
+  <img id="galaxy-img" src="assets/coche-maleta-galaxy-azul.jpg" alt="Coche Maleta Galaxy" />
+  <h3>Coche Maleta Galaxy</h3>
+  <p>Coche tipo maleta con sistema de plegado compacto.</p>
+  <div>
+    <span class="color-circle" style="background-color: #007fff" onclick="document.getElementById('galaxy-img').src='assets/coche-maleta-galaxy-azul.jpg'; galaxyColor='azul';"></span>
+    <span class="color-circle" style="background-color: #ff69b4" onclick="document.getElementById('galaxy-img').src='assets/coche-maleta-galaxy-rosa.jpg'; galaxyColor='rosa';"></span>
+  </div>
+  <span>₡72,000</span>
+  <a id="galaxy-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
 
-        <!-- Coche Maverick -->
-        <div class="producto">
-          <img id="maverick-img" src="assets/coche-maverick-azul.jpg" alt="Coche Maverick" />
-          <h3>Coche Maverick</h3>
-          <p>Coche robusto ideal para paseos en ciudad o parque.</p>
-          <div>
-            <button class="color-button" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-azul.jpg'; maverickColor='azul';">Azul</button>
-            <button class="color-button" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-gris.jpg'; maverickColor='gris';">Gris</button>
-            <button class="color-button" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-rosa.jpg'; maverickColor='rosa';">Rosa</button>
-            <button class="color-button" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-travel.jpg'; maverickColor='travel';">Travel</button>
-          </div>
-          <span>₡67,500</span>
-          <a id="maverick-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
-        </div>
+<!-- Coche Maverick -->
+<div class="producto">
+  <img id="maverick-img" src="assets/coche-maverick-azul.jpg" alt="Coche Maverick" />
+  <h3>Coche Maverick</h3>
+  <p>Coche robusto ideal para paseos en ciudad o parque.</p>
+  <div>
+    <span class="color-circle" style="background-color: #007fff" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-azul.jpg'; maverickColor='azul';"></span>
+    <span class="color-circle" style="background-color: #888888" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-gris.jpg'; maverickColor='gris';"></span>
+    <span class="color-circle" style="background-color: #ff69b4" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-rosa.jpg'; maverickColor='rosa';"></span>
+    <span class="color-circle" style="background-color: #654321" onclick="document.getElementById('maverick-img').src='assets/coche-maverick-travel.jpg'; maverickColor='travel';"></span>
+  </div>
+  <span>₡67,500</span>
+  <a id="maverick-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
 
-        <!-- Coche Argus Maleta -->
-        <div class="producto">
-          <img id="argus-img" src="assets/coche-argus-maleta.jpg" alt="Coche Argus Maleta" />
-          <h3>Coche Argus Maleta</h3>
-          <p>Compacto y liviano, ideal para viajes.</p>
-          <div>
-            <button class="color-button" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta.jpg'; argusColor='estándar';">Estándar</button>
-            <button class="color-button" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-verde.jpg'; argusColor='verde';">Verde</button>
-            <button class="color-button" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-azul.jpg'; argusColor='azul';">Azul</button>
-            <button class="color-button" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-rosa.jpg'; argusColor='rosa';">Rosa</button>
-            <button class="color-button" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-gris.jpg'; argusColor='gris';">Gris</button>
-          </div>
-          <span>₡62,000</span>
-          <a id="argus-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
-        </div>
-        <!-- Coche Delta -->
-        <div class="producto">
-          <img id="delta-img" src="assets/coche-delta-rosado.jpg" alt="Coche Delta" />
-          <h3>Coche Delta</h3>
-          <p>Coche amplio con múltiples posiciones de reclinado.</p>
-          <div>
-            <button class="color-button" onclick="document.getElementById('delta-img').src='assets/coche-delta-rosado.jpg'; deltaColor='rosado';">Rosado</button>
-            <button class="color-button" onclick="document.getElementById('delta-img').src='assets/coche-delta-gris.jpg'; deltaColor='gris';">Gris</button>
-          </div>
-          <span>₡64,000</span>
-          <a id="delta-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
-        </div>
+<!-- Coche Argus Maleta -->
+<div class="producto">
+  <img id="argus-img" src="assets/coche-argus-maleta.jpg" alt="Coche Argus Maleta" />
+  <h3>Coche Argus Maleta</h3>
+  <p>Compacto y liviano, ideal para viajes.</p>
+  <div>
+    <span class="color-circle" style="background-color: #000000" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta.jpg'; argusColor='estándar';"></span>
+    <span class="color-circle" style="background-color: #228B22" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-verde.jpg'; argusColor='verde';"></span>
+    <span class="color-circle" style="background-color: #007fff" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-azul.jpg'; argusColor='azul';"></span>
+    <span class="color-circle" style="background-color: #ff69b4" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-rosa.jpg'; argusColor='rosa';"></span>
+    <span class="color-circle" style="background-color: #808080" onclick="document.getElementById('argus-img').src='assets/coche-argus-maleta-gris.jpg'; argusColor='gris';"></span>
+  </div>
+  <span>₡62,000</span>
+  <a id="argus-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
 
-        <!-- Coche Prima -->
-        <div class="producto">
-          <img id="prima-img" src="assets/coche-prima-azul.jpg" alt="Coche Prima" />
-          <h3>Coche Prima</h3>
-          <p>Ligero, funcional y muy cómodo.</p>
-          <div>
-            <button class="color-button" onclick="document.getElementById('prima-img').src='assets/coche-prima-azul.jpg'; primaColor='azul';">Azul</button>
-            <button class="color-button" onclick="document.getElementById('prima-img').src='assets/coche-prima-rosa.jpg'; primaColor='rosa';">Rosa</button>
-          </div>
-          <span>₡49,000</span>
-          <a id="prima-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
-        </div>
+<!-- Coche Delta -->
+<div class="producto">
+  <img id="delta-img" src="assets/coche-delta-rosado.jpg" alt="Coche Delta" />
+  <h3>Coche Delta</h3>
+  <p>Coche amplio con múltiples posiciones de reclinado.</p>
+  <div>
+    <span class="color-circle" style="background-color: #ffc0cb" onclick="document.getElementById('delta-img').src='assets/coche-delta-rosado.jpg'; deltaColor='rosado';"></span>
+    <span class="color-circle" style="background-color: #808080" onclick="document.getElementById('delta-img').src='assets/coche-delta-gris.jpg'; deltaColor='gris';"></span>
+  </div>
+  <span>₡64,000</span>
+  <a id="delta-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
 
-        <!-- Más productos puedes agregar aquí -->
+<!-- Coche Prima -->
+<div class="producto">
+  <img id="prima-img" src="assets/coche-prima-azul.jpg" alt="Coche Prima" />
+  <h3>Coche Prima</h3>
+  <p>Ligero, funcional y muy cómodo.</p>
+  <div>
+    <span class="color-circle" style="background-color: #007fff" onclick="document.getElementById('prima-img').src='assets/coche-prima-azul.jpg'; primaColor='azul';"></span>
+    <span class="color-circle" style="background-color: #ffc0cb" onclick="document.getElementById('prima-img').src='assets/coche-prima-rosa.jpg'; primaColor='rosa';"></span>
+  </div>
+  <span>₡49,000</span>
+  <a id="prima-link" href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
       </div>
     </div>
-
-<script>
-  let zirconColor = 'vino';
-  let galaxyColor = 'azul';
-  let maverickColor = 'azul';
-  let argusColor = 'estándar';
-  let deltaColor = 'rosado';
-  let primaColor = 'azul';
-
-  document.getElementById('zircon-link').addEventListener('click', function () {
-    this.href = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Zircon%20Reversible%20color%20${zirconColor}`;
-  });
-
-  document.getElementById('galaxy-link').addEventListener('click', function () {
-    this.href = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Maleta%20Galaxy%20color%20${galaxyColor}`;
-  });
-
-  document.getElementById('maverick-link').addEventListener('click', function () {
-    this.href = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Maverick%20color%20${maverickColor}`;
-  });
-
-  document.getElementById('argus-link').addEventListener('click', function () {
-    this.href = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Argus%20Maleta%20color%20${argusColor}`;
-  });
-
-  document.getElementById('delta-link').addEventListener('click', function () {
-    this.href = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Delta%20color%20${deltaColor}`;
-  });
-
-  document.getElementById('prima-link').addEventListener('click', function () {
-    this.href = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20Coche%20Prima%20color%20${primaColor}`;
-  });
-</script>
     <div id="content2" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -295,7 +237,6 @@
         </div>
       </div>
     </div>
-
     <div id="content3" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -307,7 +248,6 @@
         </div>
       </div>
     </div>
-
     <div id="content4" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -319,7 +259,6 @@
         </div>
       </div>
     </div>
-
     <div id="content5" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -331,7 +270,6 @@
         </div>
       </div>
     </div>
-
     <div id="content6" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -343,7 +281,6 @@
         </div>
       </div>
     </div>
-
     <div id="content7" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -355,10 +292,7 @@
         </div>
       </div>
     </div>
-
   </main>
-
-  <!-- Botones flotantes -->
   <div class="floating-buttons">
     <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
       <img src="assets/whatsapp.png" alt="WhatsApp">
@@ -367,7 +301,6 @@
       <img src="assets/instagram.png" alt="Instagram">
     </a>
   </div>
-
   <footer>
     <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
