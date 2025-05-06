@@ -107,10 +107,23 @@
     .floating-buttons img:hover {
       transform: scale(1.1);
     }
+
+    @media (max-width: 768px) {
+      .tabs label {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 12px;
+      }
+
+      .tabs {
+        padding: 0 1rem;
+      }
+    }
   </style>
 </head>
 <body>
-
   <header>
     <nav>
       <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
@@ -125,7 +138,6 @@
 
   <main class="tabs">
 
-    <!-- Categorías -->
     <input type="radio" name="tab" id="tab1" checked><label for="tab1">Coches</label>
     <input type="radio" name="tab" id="tab2"><label for="tab2">Encierros</label>
     <input type="radio" name="tab" id="tab3"><label for="tab3">Sillas de Comer</label>
@@ -134,7 +146,6 @@
     <input type="radio" name="tab" id="tab6"><label for="tab6">Colechos</label>
     <input type="radio" name="tab" id="tab7"><label for="tab7">Cunas</label>
 
-    <!-- Contenido de cada categoría -->
     <div id="content1" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -146,7 +157,6 @@
         </div>
       </div>
     </div>
-
     <div id="content2" class="tab-content">
       <div class="productos">
         <div class="producto">
@@ -221,7 +231,7 @@
 
   </main>
 
-  <!-- Botones flotantes con imágenes personalizadas -->
+  <!-- Botones flotantes -->
   <div class="floating-buttons">
     <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
       <img src="assets/whatsapp.png" alt="WhatsApp">
