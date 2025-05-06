@@ -126,7 +126,10 @@
 <body>
   <header>
     <nav>
-      <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+      <div style="display: flex; align-items: center; gap: 15px;">
+        <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+        <span style="font-size: 1.4rem; font-weight: bold; color: var(--morado);">La Casita del Bebé</span>
+      </div>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tienda.html">Tienda</a></li>
@@ -137,8 +140,7 @@
   </header>
 
   <main class="tabs">
-
-    <input type="radio" name="tab" id="tab1" checked><label for="tab1">Coches</label>
+     <input type="radio" name="tab" id="tab1" checked><label for="tab1">Coches</label>
     <input type="radio" name="tab" id="tab2"><label for="tab2">Encierros</label>
     <input type="radio" name="tab" id="tab3"><label for="tab3">Sillas de Comer</label>
     <input type="radio" name="tab" id="tab4"><label for="tab4">Sillas para Carro</label>
@@ -157,6 +159,7 @@
         </div>
       </div>
     </div>
+
     <div id="content2" class="tab-content">
       <div class="productos">
         <div class="producto">
