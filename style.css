@@ -201,6 +201,8 @@ footer a {
   color: #fff;
   text-decoration: underline;
 }
+
+/* Botones flotantes */
 .floating-buttons {
   position: fixed;
   bottom: 20px;
@@ -230,6 +232,9 @@ footer a {
   background-color: #d62976;
 }
 
+.floating-buttons a:hover {
+  transform: scale(1.1);
+}
 .floating-buttons a:hover {
   transform: scale(1.1);
 }
