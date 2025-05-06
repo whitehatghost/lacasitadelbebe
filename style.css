@@ -242,3 +242,20 @@ footer a {
 .floating-buttons a:hover {
   transform: scale(1.1);
 }
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.nombre-tienda {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--morado);
+}
+
+@media (max-width: 768px) {
+  .nombre-tienda {
+    font-size: 1.2rem;
+  }
+}
