@@ -309,12 +309,13 @@ document.querySelectorAll('.color-circle').forEach(button => {
   button.addEventListener('click', () => {
     const producto = button.closest('.producto');
     const img = producto.querySelector('img');
-    const color = button.getAttribute('data-color');
-    const colorName = color.replace('#', '').replace(/[0-9]/g, '').toLowerCase();
+    const src = button.dataset.src;
+    const color = button.dataset.color;
+    img.src = src;
+
+    // Actualiza la variable de color según el ID
     const id = img.id.split('-')[0];
-    const baseName = img.src.split('/').pop().split('-').slice(0, -1).join('-');
-    img.src = `assets/${baseName}-${colorName}.jpg`;
-    window[`${id}Color`] = colorName;
+    window[`${id}Color`] = color;
   });
 });
 
