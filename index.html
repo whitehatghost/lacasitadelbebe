@@ -82,16 +82,13 @@
     }
 
     .carousel img {
-      max-height: 100%;
-      max-width: 100%;
-      object-fit: contain;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
       opacity: 0;
       position: absolute;
       transition: opacity 1s ease-in-out;
       border-radius: 25px;
-      left: 0;
-      right: 0;
-      margin: auto;
     }
 
     .carousel img.active {
@@ -200,6 +197,8 @@
           showSlide(index);
         });
       });
+
+      showSlide(index);
 
       setInterval(() => {
         index = (index + 1) % images.length;
