@@ -75,12 +75,10 @@
     .carousel {
       position: relative;
       overflow: hidden;
-      max-height: 450px;
-      box-shadow: 0 4px 20px rgba(0,0,0,0.1);
-      border-radius: 25px;
-      margin: 20px auto;
+      height: 380px;
       width: 90%;
-      background-color: #fff;
+      margin: 20px auto;
+      border-radius: 25px;
     }
 
     .carousel img {
@@ -107,6 +105,8 @@
       background-color: #fff9f0;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
       margin-bottom: 20px;
+      flex-wrap: wrap;
+      gap: 20px;
     }
 
     .benefit-item {
@@ -115,7 +115,7 @@
     }
 
     .benefit-item img {
-      height: 40px;
+      height: 50px;
       margin-bottom: 10px;
     }
 
@@ -136,6 +136,15 @@
       overflow: hidden;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       display: block;
+    }
+
+    .contenido-bb {
+      max-width: 1000px;
+      margin: 40px auto;
+      text-align: center;
+      padding: 0 1rem;
+      font-size: 1.1rem;
+      color: #444;
     }
 
     footer {
@@ -159,6 +168,21 @@
   </script>
 </head>
 <body>
+  <header>
+    <div class="logo-container">
+      <img src="assets/logo.png" class="logo" alt="Logo">
+      <div class="nombre-tienda">La Casita del Bebé</div>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="#">Inicio</a></li>
+        <li><a href="#">Tienda</a></li>
+        <li><a href="#">Quiénes Somos</a></li>
+        <li><a href="#">Contacto</a></li>
+      </ul>
+    </nav>
+  </header>
+
   <div class="carousel">
     <img src="assets/carrusel1.jpg" class="active" alt="Carrusel 1">
     <img src="assets/carrusel2.jpg" alt="Carrusel 2">
@@ -188,7 +212,15 @@
     </div>
   </div>
 
-  <img class="banner-grande" src="assets/banner-grande.jpg" alt="Banner grande">
+  <img class="banner-grande" src="assets/banner.jpg" alt="Banner grande">
+
+  <div class="contenido-bb">
+    <p>
+      En <strong>La Casita del Bebé</strong> ofrecemos los mejores artículos BBB (buenos, bonitos y baratos) para tu bebé. 🍼<br>
+      Descubrí una tienda segura, confiable y llena de amor en 🇨🇷. Desde cochecitos y cunas hasta artículos de seguridad, tenemos todo lo que tu pequeño necesita para crecer feliz y protegido.
+    </p>
+  </div>
+
   <footer>
     Creado por @hacksincodigos
   </footer>
