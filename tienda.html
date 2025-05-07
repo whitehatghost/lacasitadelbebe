@@ -840,13 +840,18 @@
 
   <script>
   document.querySelectorAll('input[name="tab"]').forEach(tab => {
-    tab.addEventListener('change', () => {
+    const scrollToTab = () => {
       const id = tab.id.replace('tab', 'content');
       const content = document.getElementById(id);
       if (content) {
-        content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        setTimeout(() => {
+          content.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }, 50);
       }
-    });
+    };
+
+    tab.addEventListener('change', scrollToTab);
+    tab.nextElementSibling.addEventListener('click', scrollToTab); // click en la etiqueta del tab
   });
 </script>
 
