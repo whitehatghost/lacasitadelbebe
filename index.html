@@ -81,6 +81,21 @@
       display: block;
     }
 
+    .carousel-marcas {
+      margin: 2rem auto;
+      max-width: 1000px;
+      display: flex;
+      overflow-x: auto;
+      gap: 1rem;
+      padding: 1rem;
+    }
+
+    .carousel-marcas img {
+      height: 100px;
+      object-fit: contain;
+      flex-shrink: 0;
+    }
+
     .beneficios {
       display: flex;
       justify-content: space-around;
@@ -232,13 +247,21 @@
         </div>
       </div>
       <div class="beneficio">
-        <img src="assets/icono-tiendas.svg" alt="Tiendas">
+        <img src="assets/icono-tiendas.svg" alt="Marcas reconocidas">
         <div>
-          <strong>Tiendas</strong><br>
-          Oficiales<br>
+          <strong>Marcas</strong><br>
+          reconocidas<br>
           <a href="#">Ver más</a>
         </div>
       </div>
+    </section>
+
+    <section class="carousel-marcas">
+      <img src="assets/marca1.png" alt="Marca 1">
+      <img src="assets/marca2.png" alt="Marca 2">
+      <img src="assets/marca3.png" alt="Marca 3">
+      <img src="assets/marca4.png" alt="Marca 4">
+      <img src="assets/marca5.png" alt="Marca 5">
     </section>
 
     <section class="bienvenida">
@@ -262,13 +285,18 @@
   </footer>
 
   <script>
-    const images = document.querySelectorAll('.carousel img');
-    let current = 0;
-    setInterval(() => {
-      images[current].classList.remove('active');
-      current = (current + 1) % images.length;
-      images[current].classList.add('active');
-    }, 4000);
+    window.addEventListener('DOMContentLoaded', () => {
+      const images = document.querySelectorAll('.carousel img');
+      let current = 0;
+      if (images.length) {
+        images[current].classList.add('active');
+        setInterval(() => {
+          images[current].classList.remove('active');
+          current = (current + 1) % images.length;
+          images[current].classList.add('active');
+        }, 4000);
+      }
+    });
   </script>
 </body>
 </html>
