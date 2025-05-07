@@ -259,3 +259,6 @@ footer a {
     font-size: 1.2rem;
   }
 }
+input#tab6:checked ~ #content6 {
+  display: block;
+}
