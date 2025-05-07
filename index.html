@@ -22,18 +22,29 @@
       font-family: 'Arial', sans-serif;
     }
     body {
+      background-color: #fff;
+      color: #333;
       background-image: url('assets/background.jpg');
       background-repeat: repeat;
       background-size: auto;
     }
-    header {
-      background-color: var(--celeste);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      height: 300px;
+      width: 100vw;
+      margin: 0;
+      border-radius: 0;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .banner-grande,
+    .banner2 {
+      width: 100vw;
+      margin: 0;
+      border-radius: 0;
+      overflow: hidden;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+      display: block;
     }
     .logo-container {
       display: flex;
@@ -43,6 +54,15 @@
     .logo {
       height: 60px;
       border-radius: 50%;
+    }
+    header {
+      background-color: var(--celeste);
+      padding: 1rem 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
     .nombre-tienda {
       font-size: 1.8rem;
@@ -63,27 +83,30 @@
     nav ul li a:hover {
       color: var(--morado);
     }
-    .intro-section, .extra-content, .shipping-message {
+    .intro-section, .extra-content, .contenido-bb {
+      background-color: var(--amarillo);
+      border: 2px solid var(--morado);
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       max-width: 1000px;
       margin: 30px auto;
       text-align: center;
-      padding: 0 1rem;
       font-size: 1.1rem;
       color: #444;
     }
     .shipping-message {
-      background-color: #fff0f0;
+      background-color: var(--celeste);
+      border: 2px solid var(--morado);
       font-weight: bold;
       font-size: 1.2rem;
       color: #d00000;
-    }
-    .carousel {
-      position: relative;
-      overflow: hidden;
-      height: 300px;
-      width: 90%;
-      margin: 20px auto;
-      border-radius: 25px;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      max-width: 1000px;
+      margin: 30px auto;
+      text-align: center;
     }
     .carousel-inner {
       display: flex;
@@ -98,7 +121,6 @@
       flex-shrink: 0;
       flex-grow: 0;
       flex-basis: 100%;
-      border-radius: 25px;
     }
     .carousel-controls {
       position: absolute;
@@ -133,16 +155,19 @@
       background-color: var(--morado);
     }
     .benefits {
+      background-color: var(--amarillo);
+      border: 2px solid var(--morado);
       display: flex;
       justify-content: space-around;
       align-items: center;
       text-align: center;
-      padding: 20px 0;
-      background-color: #fff9f0;
+      padding: 20px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-      margin-bottom: 20px;
+      margin: 20px auto;
       flex-wrap: wrap;
       gap: 20px;
+      border-radius: 20px;
+      max-width: 1000px;
     }
     .benefit-item {
       flex: 1;
@@ -159,22 +184,6 @@
     .benefit-text {
       font-size: 0.9rem;
       color: #555;
-    }
-    .banner-grande {
-      width: 90%;
-      margin: 30px auto;
-      border-radius: 20px;
-      overflow: hidden;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
-      display: block;
-    }
-    .contenido-bb {
-      max-width: 1000px;
-      margin: 40px auto;
-      text-align: center;
-      padding: 0 1rem;
-      font-size: 1.1rem;
-      color: #444;
     }
     footer {
       text-align: center;
@@ -202,7 +211,7 @@
   </header>
 
   <section class="intro-section">
-    <h2>🍽️ Todo para tu bebé en un solo lugar</h2>
+    <h2>🍼 Todo para tu bebé en un solo lugar</h2>
     <p>Explorá nuestra tienda con artículos cuidadosamente seleccionados para acompañar cada etapa del crecimiento de tu bebé. Desde cochecitos y cunas hasta juguetes educativos y accesorios útiles. 🧸👶</p>
   </section>
 
@@ -225,6 +234,7 @@
   </section>
 
   <img src="assets/banner.jpg" alt="Banner Grande" class="banner-grande">
+  <img src="assets/banner2.jpg" alt="Banner 2" class="banner2">
 
   <div class="shipping-message">
     🚚 ¡Envíos Gratis a todo el país y soporte personalizado en todas tus compras online! 💬
