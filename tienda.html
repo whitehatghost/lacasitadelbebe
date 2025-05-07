@@ -837,5 +837,19 @@
       });
     });
   </script>
+
+  <script>
+  document.querySelectorAll('input[name="tab"]').forEach(tab => {
+    tab.addEventListener('change', () => {
+      setTimeout(() => {
+        const activeContent = document.querySelector('.tab-content[style*="block"]') || document.querySelector('.tab-content:is(:not([style]))');
+        if (activeContent) {
+          activeContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      }, 50);
+    });
+  });
+</script>
+  
 </body>
 </html>
