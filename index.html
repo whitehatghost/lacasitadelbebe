@@ -83,16 +83,16 @@
 
     .carousel-inner {
       display: flex;
-      transition: transform 1s ease-in-out;
+      transition: transform 0.6s ease-in-out;
       width: 300%;
     }
 
     .carousel img {
-      height: 300px;
+      flex: 0 0 100%;
       width: 100%;
-      object-fit: contain;
+      height: 300px;
+      object-fit: cover;
       border-radius: 25px;
-      flex-shrink: 0;
     }
 
     .carousel-controls {
@@ -195,7 +195,7 @@
 <body>
   <header>
     <div class="logo-container">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/logo.png" alt="Logo" class="logo">
+      <img src="assets/logo.jpg" alt="Logo" class="logo" />
       <span class="nombre-tienda">La Casita del Bebé</span>
     </div>
     <nav>
@@ -210,22 +210,20 @@
 
   <div class="carousel">
     <div class="carousel-inner">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/carrusel1.jpg" alt="Imagen 1">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/carrusel2.jpg" alt="Imagen 2">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/carrusel3.jpg" alt="Imagen 3">
+      <img src="assets/carrusel1.jpg" alt="Carrusel 1">
+      <img src="assets/carrusel2.jpg" alt="Carrusel 2">
+      <img src="assets/carrusel3.jpg" alt="Carrusel 3">
     </div>
     <div class="carousel-controls">
-      <button class="control" id="prev">❮</button>
-      <button class="control" id="next">❯</button>
+      <button class="control left">&#10094;</button>
+      <button class="control right">&#10095;</button>
+    </div>
+    <div class="dots">
+      <span class="dot active"></span>
+      <span class="dot"></span>
+      <span class="dot"></span>
     </div>
   </div>
-  <div class="dots">
-    <span class="dot"></span>
-    <span class="dot"></span>
-    <span class="dot"></span>
-  </div>
-
-  <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/banner.jpg" alt="Banner Principal" class="banner-grande">
 
   <div class="contenido-bb">
     <h2>Artículos de Bebé BBB (Buenos, Bonitos y Baratos) en Costa Rica</h2>
@@ -234,76 +232,79 @@
 
   <div class="benefits">
     <div class="benefit-item">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/icon-envio.png" alt="Envío Gratis">
+      <img src="assets/icon-envio.png" alt="Envío Gratis">
       <div class="benefit-title">Envío Gratis</div>
       <div class="benefit-text">En compras mayores a ₡30.000</div>
     </div>
     <div class="benefit-item">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/icon-cuotas.png" alt="Pagá en Cuotas">
-      <div class="benefit-title">Pagá en 6 Cuotas</div>
+      <img src="assets/icon-cuotas.png" alt="Cuotas">
+      <div class="benefit-title">Pagá en Cuotas</div>
       <div class="benefit-text">Con tus tarjetas preferidas</div>
     </div>
     <div class="benefit-item">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/icon-garantia.png" alt="Garantía">
-      <div class="benefit-title">Garantía de 1 Año</div>
-      <div class="benefit-text">Comprá con seguridad</div>
+      <img src="assets/icon-garantia.png" alt="Garantía">
+      <div class="benefit-title">Garantía</div>
+      <div class="benefit-text">1 año en todos los productos</div>
     </div>
     <div class="benefit-item">
-      <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/icon-marcas.png" alt="Marcas reconocidas">
-      <div class="benefit-title">Marcas Reconocidas</div>
-      <div class="benefit-text">Solo lo mejor para tu bebé</div>
+      <img src="assets/icon-marcas.png" alt="Marcas">
+      <div class="benefit-title">Soporte Personalizado</div>
+      <div class="benefit-text">Te ayudamos con tu compra</div>
     </div>
   </div>
+
+  <img src="assets/banner.jpg" alt="Banner Principal" class="banner-grande" />
 
   <footer>
     &copy; 2025 La Casita del Bebé. Todos los derechos reservados.
   </footer>
 
   <script>
-    let currentSlide = 0;
-    const slides = document.querySelectorAll('.carousel-inner img');
-    const dots = document.querySelectorAll('.dot');
-    const totalSlides = slides.length;
-    let autoSlideInterval;
+    let currentIndex = 0;
+    const intervalTime = 5000;
+    let interval;
 
     function showSlide(index) {
-      const carouselInner = document.querySelector('.carousel-inner');
-      if (index >= totalSlides) index = 0;
-      if (index < 0) index = totalSlides - 1;
-      carouselInner.style.transform = `translateX(-${index * 100}%)`;
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[index].classList.add('active');
-      currentSlide = index;
+      const slides = document.querySelectorAll(".carousel img");
+      const dots = document.querySelectorAll(".dot");
+
+      if (index >= slides.length) currentIndex = 0;
+      else if (index < 0) currentIndex = slides.length - 1;
+      else currentIndex = index;
+
+      const offset = -currentIndex * 100;
+      document.querySelector(".carousel-inner").style.transform = `translateX(${offset}%)`;
+
+      dots.forEach(dot => dot.classList.remove("active"));
+      dots[currentIndex].classList.add("active");
     }
 
-    function startAutoSlide() {
-      autoSlideInterval = setInterval(() => {
-        showSlide(currentSlide + 1);
-      }, 5000);
+    function nextSlide() {
+      showSlide(currentIndex + 1);
     }
 
-    dots.forEach((dot, i) => {
-      dot.addEventListener('click', () => {
-        clearInterval(autoSlideInterval);
-        showSlide(i);
-        startAutoSlide();
+    function prevSlide() {
+      showSlide(currentIndex - 1);
+    }
+
+    function startCarousel() {
+      interval = setInterval(nextSlide, intervalTime);
+    }
+
+    function stopCarousel() {
+      clearInterval(interval);
+    }
+
+    window.onload = () => {
+      document.querySelectorAll(".dot").forEach((dot, index) => {
+        dot.addEventListener("click", () => {
+          showSlide(index);
+        });
       });
-    });
-
-    document.getElementById('prev').addEventListener('click', () => {
-      clearInterval(autoSlideInterval);
-      showSlide(currentSlide - 1);
-      startAutoSlide();
-    });
-
-    document.getElementById('next').addEventListener('click', () => {
-      clearInterval(autoSlideInterval);
-      showSlide(currentSlide + 1);
-      startAutoSlide();
-    });
-
-    showSlide(0);
-    startAutoSlide();
+      document.querySelector(".control.left").addEventListener("click", prevSlide);
+      document.querySelector(".control.right").addEventListener("click", nextSlide);
+      startCarousel();
+    }
   </script>
 </body>
 </html>
