@@ -10,6 +10,136 @@
   <title>Inicio | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
   <style>
+    :root {
+      --morado: #b38fd4;
+      --celeste: #a5d8ff;
+      --amarillo: #fff3b0;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    body {
+      background-color: #fff;
+      color: #333;
+    }
+
+    header {
+      background-color: var(--celeste);
+      padding: 1rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+
+    .logo {
+      height: 60px;
+      border-radius: 50%;
+    }
+
+    .nombre-tienda {
+      font-size: 1.6rem;
+      font-weight: bold;
+      color: var(--morado);
+    }
+
+    nav ul {
+      display: flex;
+      gap: 1rem;
+      list-style: none;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+    }
+
+    .carousel {
+      position: relative;
+      overflow: hidden;
+      max-height: 400px;
+    }
+
+    .carousel img {
+      width: 100%;
+      display: none;
+    }
+
+    .carousel img.active {
+      display: block;
+    }
+
+    .beneficios {
+      display: flex;
+      justify-content: space-around;
+      flex-wrap: wrap;
+      background-color: #fff;
+      padding: 20px 0;
+      border-bottom: 1px solid #ddd;
+    }
+
+    .beneficio {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      text-align: left;
+      max-width: 220px;
+    }
+
+    .beneficio img {
+      width: 40px;
+      height: 40px;
+    }
+
+    .beneficio strong {
+      color: #ff6600;
+      font-size: 1rem;
+    }
+
+    .beneficio a {
+      font-size: 0.85rem;
+      color: var(--morado);
+      text-decoration: underline;
+    }
+
+    .bienvenida {
+      text-align: center;
+      padding: 2rem;
+      background-color: var(--amarillo);
+    }
+
+    .bienvenida h2 {
+      color: var(--morado);
+    }
+
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      padding: 0.8rem 1.5rem;
+      background-color: var(--morado);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #9b6fc3;
+    }
+
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -35,19 +165,18 @@
       transform: scale(1.1);
     }
 
-    .logo-container {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-    }
-
-    .nombre-tienda {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--morado);
+    footer {
+      text-align: center;
+      padding: 1rem;
+      background-color: var(--celeste);
+      color: #333;
     }
 
     @media (max-width: 768px) {
+      nav ul {
+        flex-direction: column;
+        gap: 0.5rem;
+      }
       .nombre-tienda {
         font-size: 1.2rem;
       }
@@ -55,13 +184,12 @@
   </style>
 </head>
 <body>
-
   <header>
+    <div class="logo-container">
+      <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
+      <span class="nombre-tienda">La Casita del Bebé</span>
+    </div>
     <nav>
-      <div class="logo-container">
-        <img src="assets/logo.jpg" alt="Logo La Casita del Bebé" class="logo" />
-        <span class="nombre-tienda">La Casita del Bebé</span>
-      </div>
       <ul>
         <li><a href="index.html">Inicio</a></li>
         <li><a href="tienda.html">Tienda</a></li>
@@ -71,13 +199,48 @@
     </nav>
   </header>
 
-  <main style="margin-top: 30px;">
-    <!-- Banner principal -->
-    <section class="banner">
-      <img src="assets/banner.jpg" alt="Banner La Casita del Bebé" class="banner-img" />
+  <main>
+    <section class="carousel">
+      <img src="assets/banner1.jpg" class="active" alt="Banner 1">
+      <img src="assets/banner2.jpg" alt="Banner 2">
+      <img src="assets/banner3.jpg" alt="Banner 3">
     </section>
 
-    <!-- Sección bienvenida -->
+    <section class="beneficios">
+      <div class="beneficio">
+        <img src="assets/icono-cuotas.svg" alt="Cuotas">
+        <div>
+          <strong>6 Cuotas</strong><br>
+          sin interés<br>
+          <a href="#">Ver más</a>
+        </div>
+      </div>
+      <div class="beneficio">
+        <img src="assets/icono-envio.svg" alt="Envío gratis">
+        <div>
+          <strong>Envío gratis</strong><br>
+          A todo el país<br>
+          <a href="#">Ver más</a>
+        </div>
+      </div>
+      <div class="beneficio">
+        <img src="assets/icono-garantia.svg" alt="Garantía">
+        <div>
+          <strong>Garantía</strong><br>
+          1 Año<br>
+          <a href="#">Ver más</a>
+        </div>
+      </div>
+      <div class="beneficio">
+        <img src="assets/icono-tiendas.svg" alt="Tiendas">
+        <div>
+          <strong>Tiendas</strong><br>
+          Oficiales<br>
+          <a href="#">Ver más</a>
+        </div>
+      </div>
+    </section>
+
     <section class="bienvenida">
       <h2>Bienvenidos a La Casita del Bebé 👶</h2>
       <p>Descubrí artículos encantadores, seguros y adorables para tu bebé. Productos seleccionados con amor en 🇨🇷.</p>
@@ -85,7 +248,6 @@
     </section>
   </main>
 
-  <!-- Botones flotantes con imágenes -->
   <div class="floating-buttons">
     <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
       <img src="assets/whatsapp.png" alt="WhatsApp">
@@ -99,5 +261,14 @@
     <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
 
+  <script>
+    const images = document.querySelectorAll('.carousel img');
+    let current = 0;
+    setInterval(() => {
+      images[current].classList.remove('active');
+      current = (current + 1) % images.length;
+      images[current].classList.add('active');
+    }, 4000);
+  </script>
 </body>
 </html>
