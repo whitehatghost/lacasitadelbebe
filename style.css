@@ -262,3 +262,13 @@ footer a {
 input#tab6:checked ~ #content6 {
   display: block;
 }
+.tabs label {
+  padding: 0.7rem 1.2rem;
+  background: var(--morado);
+  color: white;
+  margin: 5px 6px 0 0; /* separación horizontal y vertical */
+  border-radius: 12px 12px 0 0;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background 0.3s;
+}
