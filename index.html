@@ -75,20 +75,23 @@
     .carousel {
       position: relative;
       overflow: hidden;
-      height: 380px;
+      height: 300px;
       width: 90%;
       margin: 20px auto;
       border-radius: 25px;
     }
 
     .carousel img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
       opacity: 0;
       position: absolute;
       transition: opacity 1s ease-in-out;
       border-radius: 25px;
+      left: 0;
+      right: 0;
+      margin: auto;
     }
 
     .carousel img.active {
@@ -181,10 +184,14 @@
       let index = 0;
 
       function showSlide(i) {
-        images.forEach(img => img.classList.remove('active'));
-        dots.forEach(dot => dot.classList.remove('active'));
-        images[i].classList.add('active');
-        dots[i].classList.add('active');
+        images.forEach((img, idx) => {
+          img.classList.remove('active');
+          if (idx === i) img.classList.add('active');
+        });
+        dots.forEach((dot, idx) => {
+          dot.classList.remove('active');
+          if (idx === i) dot.classList.add('active');
+        });
       }
 
       dots.forEach((dot, i) => {
