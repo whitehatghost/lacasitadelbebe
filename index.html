@@ -15,19 +15,16 @@
       --celeste: #a5d8ff;
       --amarillo: #fff3b0;
     }
-
     * {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
       font-family: 'Arial', sans-serif;
     }
-
     body {
       background-color: #fff;
       color: #333;
     }
-
     header {
       background-color: var(--celeste);
       padding: 1rem 2rem;
@@ -37,41 +34,34 @@
       flex-wrap: wrap;
       box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
     }
-
     .logo-container {
       display: flex;
       align-items: center;
       gap: 15px;
     }
-
     .logo {
       height: 60px;
       border-radius: 50%;
     }
-
     .nombre-tienda {
       font-size: 1.8rem;
       font-weight: bold;
       color: var(--morado);
     }
-
     nav ul {
       display: flex;
       gap: 1.5rem;
       list-style: none;
     }
-
     nav ul li a {
       text-decoration: none;
       color: #333;
       font-weight: bold;
       transition: color 0.3s;
     }
-
     nav ul li a:hover {
       color: var(--morado);
     }
-
     .carousel {
       position: relative;
       overflow: hidden;
@@ -80,21 +70,21 @@
       margin: 20px auto;
       border-radius: 25px;
     }
-
     .carousel-inner {
       display: flex;
       transition: transform 0.6s ease-in-out;
       width: 300%;
+      height: 100%;
     }
-
-    .carousel img {
+    .carousel-inner img {
       flex: 0 0 100%;
-      width: 100%;
-      height: 300px;
-      object-fit: cover;
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
       border-radius: 25px;
+      display: block;
+      margin: auto;
     }
-
     .carousel-controls {
       position: absolute;
       top: 50%;
@@ -103,7 +93,6 @@
       justify-content: space-between;
       transform: translateY(-50%);
     }
-
     .control {
       background: rgba(0, 0, 0, 0.4);
       color: white;
@@ -112,12 +101,10 @@
       cursor: pointer;
       font-size: 18px;
     }
-
     .dots {
       text-align: center;
       margin-top: 10px;
     }
-
     .dot {
       height: 12px;
       width: 12px;
@@ -127,11 +114,9 @@
       display: inline-block;
       cursor: pointer;
     }
-
     .dot.active {
       background-color: var(--morado);
     }
-
     .benefits {
       display: flex;
       justify-content: space-around;
@@ -144,27 +129,22 @@
       flex-wrap: wrap;
       gap: 20px;
     }
-
     .benefit-item {
       flex: 1;
       max-width: 250px;
     }
-
     .benefit-item img {
       height: 50px;
       margin-bottom: 10px;
     }
-
     .benefit-title {
       font-weight: bold;
       color: #ff6600;
     }
-
     .benefit-text {
       font-size: 0.9rem;
       color: #555;
     }
-
     .banner-grande {
       width: 90%;
       margin: 30px auto;
@@ -173,7 +153,6 @@
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
       display: block;
     }
-
     .contenido-bb {
       max-width: 1000px;
       margin: 40px auto;
@@ -182,7 +161,6 @@
       font-size: 1.1rem;
       color: #444;
     }
-
     footer {
       text-align: center;
       padding: 1.2rem;
@@ -208,52 +186,48 @@
     </nav>
   </header>
 
-  <div class="carousel">
-    <div class="carousel-inner">
-      <img src="assets/carrusel1.jpg" alt="Carrusel 1">
-      <img src="assets/carrusel2.jpg" alt="Carrusel 2">
-      <img src="assets/carrusel3.jpg" alt="Carrusel 3">
+  <div class="carousel" id="carousel">
+    <div class="carousel-inner" id="carouselInner">
+      <img src="assets/carrusel1.jpg" alt="Imagen 1">
+      <img src="assets/carrusel2.jpg" alt="Imagen 2">
+      <img src="assets/carrusel3.jpg" alt="Imagen 3">
     </div>
     <div class="carousel-controls">
-      <button class="control left">&#10094;</button>
-      <button class="control right">&#10095;</button>
+      <button class="control" onclick="prevSlide()">&#10094;</button>
+      <button class="control" onclick="nextSlide()">&#10095;</button>
     </div>
-    <div class="dots">
-      <span class="dot active"></span>
-      <span class="dot"></span>
-      <span class="dot"></span>
-    </div>
+    <div class="dots" id="dots"></div>
   </div>
 
-  <div class="contenido-bb">
-    <h2>Artículos de Bebé BBB (Buenos, Bonitos y Baratos) en Costa Rica</h2>
-    <p>En La Casita del Bebé te ofrecemos productos hermosos, útiles y económicos para tu bebé. Calidad y estilo al mejor precio.</p>
-  </div>
+  <img src="assets/banner.jpg" alt="Banner Grande" class="banner-grande">
 
-  <div class="benefits">
+  <section class="benefits">
     <div class="benefit-item">
-      <img src="assets/icon-envio.png" alt="Envío Gratis">
+      <img src="assets/icon-envio.png" alt="Envío gratis">
       <div class="benefit-title">Envío Gratis</div>
-      <div class="benefit-text">En compras mayores a ₡30.000</div>
+      <div class="benefit-text">A todo Costa Rica</div>
     </div>
     <div class="benefit-item">
       <img src="assets/icon-cuotas.png" alt="Cuotas">
       <div class="benefit-title">Pagá en Cuotas</div>
-      <div class="benefit-text">Con tus tarjetas preferidas</div>
+      <div class="benefit-text">Hasta 6 cuotas sin interés</div>
     </div>
     <div class="benefit-item">
       <img src="assets/icon-garantia.png" alt="Garantía">
       <div class="benefit-title">Garantía</div>
-      <div class="benefit-text">1 año en todos los productos</div>
+      <div class="benefit-text">En todos nuestros productos</div>
     </div>
     <div class="benefit-item">
       <img src="assets/icon-marcas.png" alt="Marcas">
-      <div class="benefit-title">Soporte Personalizado</div>
-      <div class="benefit-text">Te ayudamos con tu compra</div>
+      <div class="benefit-title">Las Mejores Marcas</div>
+      <div class="benefit-text">Artículos de calidad premium</div>
     </div>
-  </div>
+  </section>
 
-  <img src="assets/banner.jpg" alt="Banner Principal" class="banner-grande" />
+  <section class="contenido-bb">
+    <h2>Bienvenidos a La Casita del Bebé</h2>
+    <p>Somos tu tienda de confianza en Costa Rica para todo lo relacionado con el bienestar, comodidad y alegría de tu bebé. Ofrecemos artículos seleccionados con amor, de calidad comprobada y con opciones de entrega a todo el país. ¡Gracias por elegirnos!</p>
+  </section>
 
   <footer>
     &copy; 2025 La Casita del Bebé. Todos los derechos reservados.
@@ -261,22 +235,16 @@
 
   <script>
     let currentIndex = 0;
-    const intervalTime = 5000;
-    let interval;
+    const slides = document.querySelectorAll('#carouselInner img');
+    const dotsContainer = document.getElementById('dots');
 
     function showSlide(index) {
-      const slides = document.querySelectorAll(".carousel img");
-      const dots = document.querySelectorAll(".dot");
-
+      const carouselInner = document.getElementById('carouselInner');
       if (index >= slides.length) currentIndex = 0;
       else if (index < 0) currentIndex = slides.length - 1;
       else currentIndex = index;
-
-      const offset = -currentIndex * 100;
-      document.querySelector(".carousel-inner").style.transform = `translateX(${offset}%)`;
-
-      dots.forEach(dot => dot.classList.remove("active"));
-      dots[currentIndex].classList.add("active");
+      carouselInner.style.transform = `translateX(-${currentIndex * 100}%)`;
+      updateDots();
     }
 
     function nextSlide() {
@@ -287,24 +255,19 @@
       showSlide(currentIndex - 1);
     }
 
-    function startCarousel() {
-      interval = setInterval(nextSlide, intervalTime);
-    }
-
-    function stopCarousel() {
-      clearInterval(interval);
-    }
-
-    window.onload = () => {
-      document.querySelectorAll(".dot").forEach((dot, index) => {
-        dot.addEventListener("click", () => {
-          showSlide(index);
-        });
+    function updateDots() {
+      dotsContainer.innerHTML = '';
+      slides.forEach((_, idx) => {
+        const dot = document.createElement('span');
+        dot.classList.add('dot');
+        if (idx === currentIndex) dot.classList.add('active');
+        dot.onclick = () => showSlide(idx);
+        dotsContainer.appendChild(dot);
       });
-      document.querySelector(".control.left").addEventListener("click", prevSlide);
-      document.querySelector(".control.right").addEventListener("click", nextSlide);
-      startCarousel();
     }
+
+    setInterval(nextSlide, 4000);
+    showSlide(0);
   </script>
 </body>
 </html>
