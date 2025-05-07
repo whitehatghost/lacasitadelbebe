@@ -287,13 +287,14 @@ input#tab6:checked ~ #content6 {
 }
 .banner3 {
   display: block;
-  width: 100%;
-  max-width: 100vw;
-  height: 100px;
-  margin: 0 auto;
+  width: 100vw;
+  height: auto;
+  max-height: 120px;
+  object-fit: cover;
+  margin: 0;
+  padding: 0;
   border-radius: 0;
-  background-color: #fff; /* fondo si la imagen no llena el alto */
-  object-fit: contain; /* muestra bien la imagen sin estirarla */
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  background-color: #eafaf8;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
