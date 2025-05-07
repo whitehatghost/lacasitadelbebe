@@ -79,12 +79,15 @@
       width: 90%;
       margin: 20px auto;
       border-radius: 25px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
 
     .carousel img {
-      height: 100%;
-      width: 100%;
-      object-fit: cover;
+      max-height: 100%;
+      max-width: 100%;
+      object-fit: contain;
       opacity: 0;
       position: absolute;
       transition: opacity 1s ease-in-out;
