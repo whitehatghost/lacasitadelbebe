@@ -86,9 +86,9 @@
     }
 
     .intro-section {
-  background: linear-gradient(-45deg, #fff3b0, #fceff9, #a5d8ff, #b38fd4);
-  background-size: 600% 600%;
-  animation: gradientFlow 10s ease infinite;
+  background: linear-gradient(270deg, #fff3b0, #fceff9, #ffffff, #b38fd4, #a5d8ff);
+  background-size: 1000% 1000%;
+  animation: flowGradient 15s ease infinite;
   border: 3px solid #dab6fc;
   border-radius: 35px;
   padding: 40px;
@@ -101,15 +101,21 @@
   transition: all 0.4s ease-in-out;
 }
 
-@keyframes gradientFlow {
+@keyframes flowGradient {
   0% {
     background-position: 0% 50%;
   }
+  25% {
+    background-position: 25% 50%;
+  }
   50% {
-    background-position: 100% 50%;
+    background-position: 50% 50%;
+  }
+  75% {
+    background-position: 75% 50%;
   }
   100% {
-    background-position: 0% 50%;
+    background-position: 100% 50%;
   }
 }
 
@@ -133,7 +139,6 @@
   max-width: 800px;
   margin: 0 auto;
 }
-
     .extra-content, .contenido-bb {
       background-color: var(--amarillo);
       border: 2px solid var(--morado);
