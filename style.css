@@ -288,13 +288,12 @@ input#tab6:checked ~ #content6 {
 .banner3 {
   display: block;
   width: 100vw;
-  height: auto;
-  max-height: 120px;
-  object-fit: cover;
-  margin: 0;
+  height: 140px; /* altura generosa para no aplastarla */
+  margin: 0 auto;
+  object-fit: contain;
+  background-color: #ffffff;
   padding: 0;
-  border-radius: 0;
-  background-color: #eafaf8;
+  border: none;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
 
