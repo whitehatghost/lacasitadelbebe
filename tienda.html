@@ -14,6 +14,10 @@
       max-width: 1000px;
       margin: 40px auto;
       padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-end;
     }
     .tabs input[type="radio"] {
       display: none;
@@ -22,7 +26,6 @@
       padding: 0.7rem 1.2rem;
       background: var(--morado);
       color: white;
-      margin-right: 5px;
       border-radius: 12px 12px 0 0;
       cursor: pointer;
       font-weight: bold;
@@ -36,6 +39,7 @@
       padding: 2rem;
       background: var(--rosa);
       border-radius: 0 0 12px 12px;
+      width: 100%;
     }
     input#tab1:checked ~ #content1,
     input#tab2:checked ~ #content2,
@@ -115,6 +119,10 @@
       transform: scale(1.1);
     }
     @media (max-width: 768px) {
+      .tabs {
+        flex-direction: column;
+        align-items: stretch;
+      }
       .tabs label {
         display: block;
         width: 100%;
