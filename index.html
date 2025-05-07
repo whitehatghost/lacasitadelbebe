@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Inicio | La Casita del Bebé</title>
@@ -96,6 +96,25 @@
       position: relative;
     }
 
+    .dots {
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .dot {
+      height: 12px;
+      width: 12px;
+      margin: 0 5px;
+      background-color: #bbb;
+      border-radius: 50%;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .dot.active {
+      background-color: var(--morado);
+    }
+
     .benefits {
       display: flex;
       justify-content: space-around;
@@ -158,11 +177,26 @@
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const images = document.querySelectorAll('.carousel img');
+      const dots = document.querySelectorAll('.dot');
       let index = 0;
+
+      function showSlide(i) {
+        images.forEach(img => img.classList.remove('active'));
+        dots.forEach(dot => dot.classList.remove('active'));
+        images[i].classList.add('active');
+        dots[i].classList.add('active');
+      }
+
+      dots.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+          index = i;
+          showSlide(index);
+        });
+      });
+
       setInterval(() => {
-        images.forEach((img, i) => img.classList.remove('active'));
-        images[index].classList.add('active');
         index = (index + 1) % images.length;
+        showSlide(index);
       }, 4000);
     });
   </script>
@@ -175,10 +209,10 @@
     </div>
     <nav>
       <ul>
-        <li><a href="#">Inicio</a></li>
-        <li><a href="#">Tienda</a></li>
-        <li><a href="#">Quiénes Somos</a></li>
-        <li><a href="#">Contacto</a></li>
+        <li><a href="index.html">Inicio</a></li>
+        <li><a href="tienda.html">Tienda</a></li>
+        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+        <li><a href="contacto.html">Contacto</a></li>
       </ul>
     </nav>
   </header>
@@ -187,6 +221,12 @@
     <img src="assets/carrusel1.jpg" class="active" alt="Carrusel 1">
     <img src="assets/carrusel2.jpg" alt="Carrusel 2">
     <img src="assets/carrusel3.jpg" alt="Carrusel 3">
+  </div>
+
+  <div class="dots">
+    <span class="dot active"></span>
+    <span class="dot"></span>
+    <span class="dot"></span>
   </div>
 
   <div class="benefits">
