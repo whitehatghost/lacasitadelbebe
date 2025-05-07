@@ -79,24 +79,21 @@
       width: 90%;
       margin: 20px auto;
       border-radius: 25px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
     }
 
     .carousel img {
-      max-height: 100%;
-      max-width: 100%;
+      position: absolute;
+      height: 100%;
+      width: 100%;
       object-fit: contain;
       opacity: 0;
-      position: absolute;
       transition: opacity 1s ease-in-out;
       border-radius: 25px;
     }
 
     .carousel img.active {
       opacity: 1;
-      position: relative;
+      position: absolute;
     }
 
     .dots {
@@ -201,9 +198,9 @@
   </div>
 
   <div class="dots">
-    <span class="dot active" onclick="showSlideFromDot(0)"></span>
-    <span class="dot" onclick="showSlideFromDot(1)"></span>
-    <span class="dot" onclick="showSlideFromDot(2)"></span>
+    <span class="dot active" data-slide="0"></span>
+    <span class="dot" data-slide="1"></span>
+    <span class="dot" data-slide="2"></span>
   </div>
 
   <div class="benefits">
@@ -246,30 +243,40 @@
     const images = document.querySelectorAll('.carousel img');
     const dots = document.querySelectorAll('.dot');
     let index = 0;
+    let interval;
 
     function showSlide(i) {
       images.forEach((img, idx) => {
         img.classList.remove('active');
-        if (idx === i) img.classList.add('active');
-      });
-      dots.forEach((dot, idx) => {
-        dot.classList.remove('active');
-        if (idx === i) dot.classList.add('active');
+        dots[idx].classList.remove('active');
+        if (idx === i) {
+          img.classList.add('active');
+          dots[idx].classList.add('active');
+        }
       });
     }
 
-    function showSlideFromDot(i) {
-      index = i;
-      showSlide(index);
-    }
-
-    setInterval(() => {
+    function nextSlide() {
       index = (index + 1) % images.length;
       showSlide(index);
-    }, 4000);
+    }
+
+    function startCarousel() {
+      interval = setInterval(nextSlide, 4000);
+    }
+
+    dots.forEach(dot => {
+      dot.addEventListener('click', () => {
+        clearInterval(interval);
+        index = parseInt(dot.getAttribute('data-slide'));
+        showSlide(index);
+        startCarousel();
+      });
+    });
 
     document.addEventListener('DOMContentLoaded', () => {
       showSlide(index);
+      startCarousel();
     });
   </script>
 </body>
