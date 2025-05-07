@@ -414,6 +414,26 @@
   height: auto;
   object-fit: contain;
 }
+  .social-floating-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.social-button img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.social-button img:hover {
+  transform: scale(1.15);
+}
 
 
   </style>
@@ -459,6 +479,17 @@
     <h2>🌟 La mejor calidad y servicio</h2>
     <p>Nos enorgullece ofrecer productos certificados y atención personalizada para cada familia. 💖 Contamos con asesoría online, seguimiento postventa y opciones de pago flexibles.</p>
   </section>
+  <div class="social-floating-bar">
+  <a href="https://wa.me/50684268083" class="social-button whatsapp" target="_blank" title="WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+  </a>
+  <a href="https://www.facebook.com/lacasitadelbebe" class="social-button facebook" target="_blank" title="Facebook">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+  </a>
+  <a href="https://www.instagram.com/lacasitadelbebe" class="social-button instagram" target="_blank" title="Instagram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+  </a>
+</div>
 </body>
 </html>
 
