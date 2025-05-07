@@ -80,10 +80,13 @@
       border-radius: 25px;
       margin: 20px auto;
       width: 90%;
+      background-color: #fff;
     }
 
     .carousel img {
       width: 100%;
+      height: 100%;
+      object-fit: cover;
       opacity: 0;
       position: absolute;
       transition: opacity 1s ease-in-out;
@@ -95,6 +98,37 @@
       position: relative;
     }
 
+    .benefits {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      text-align: center;
+      padding: 20px 0;
+      background-color: #fff9f0;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+      margin-bottom: 20px;
+    }
+
+    .benefit-item {
+      flex: 1;
+      max-width: 250px;
+    }
+
+    .benefit-item img {
+      height: 40px;
+      margin-bottom: 10px;
+    }
+
+    .benefit-title {
+      font-weight: bold;
+      color: #ff6600;
+    }
+
+    .benefit-text {
+      font-size: 0.9rem;
+      color: #555;
+    }
+
     .banner-grande {
       width: 90%;
       margin: 30px auto;
@@ -104,139 +138,12 @@
       display: block;
     }
 
-    .carousel-marcas {
-      margin: 2rem auto;
-      max-width: 1100px;
-      display: flex;
-      overflow-x: auto;
-      gap: 2rem;
-      padding: 1rem;
-      background: #f9f9f9;
-      border-radius: 12px;
-      box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    .carousel-marcas img {
-      height: 80px;
-      object-fit: contain;
-      flex-shrink: 0;
-    }
-
-    .beneficios {
-      display: flex;
-      justify-content: space-around;
-      flex-wrap: wrap;
-      background-color: #fff;
-      padding: 40px 10px;
-      border-bottom: 1px solid #ddd;
-      gap: 2rem;
-    }
-
-    .beneficio {
-      display: flex;
-      align-items: center;
-      gap: 15px;
-      text-align: left;
-      max-width: 320px;
-      background: #f4f9ff;
-      border-radius: 25px;
-      padding: 1.2rem;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-    }
-
-    .beneficio img {
-      width: 70px;
-      height: 70px;
-    }
-
-    .beneficio strong {
-      color: #ff6600;
-      font-size: 1.2rem;
-    }
-
-    .beneficio a {
-      font-size: 0.9rem;
-      color: var(--morado);
-      text-decoration: underline;
-    }
-
-    .bienvenida {
-      text-align: center;
-      padding: 3rem 2rem;
-      background-color: var(--amarillo);
-      border-radius: 12px;
-      margin: 2rem auto;
-      max-width: 900px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-    }
-
-    .bienvenida h2 {
-      color: var(--morado);
-      font-size: 1.8rem;
-      margin-bottom: 1rem;
-    }
-
-    .btn {
-      display: inline-block;
-      margin-top: 1rem;
-      padding: 0.9rem 2rem;
-      background-color: var(--morado);
-      color: white;
-      text-decoration: none;
-      border-radius: 30px;
-      font-weight: bold;
-      transition: background 0.3s;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    }
-
-    .btn:hover {
-      background-color: #9b6fc3;
-    }
-
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-
-    .floating-buttons img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      padding: 6px;
-      background-color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-    }
-
-    .floating-buttons img:hover {
-      transform: scale(1.1);
-    }
-
     footer {
       text-align: center;
       padding: 1.2rem;
       background-color: var(--celeste);
       color: #333;
       font-size: 0.9rem;
-    }
-
-    @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
-      .nombre-tienda {
-        font-size: 1.3rem;
-      }
-      .bienvenida h2 {
-        font-size: 1.4rem;
-      }
     }
   </style>
   <script>
@@ -257,6 +164,33 @@
     <img src="assets/carrusel2.jpg" alt="Carrusel 2">
     <img src="assets/carrusel3.jpg" alt="Carrusel 3">
   </div>
+
+  <div class="benefits">
+    <div class="benefit-item">
+      <img src="assets/icon-cuotas.png" alt="Cuotas">
+      <div class="benefit-title">6 Cuotas</div>
+      <div class="benefit-text">sin interés</div>
+    </div>
+    <div class="benefit-item">
+      <img src="assets/icon-envio.png" alt="Envío Gratis">
+      <div class="benefit-title">Envío gratis</div>
+      <div class="benefit-text">A todo el país</div>
+    </div>
+    <div class="benefit-item">
+      <img src="assets/icon-garantia.png" alt="Garantía">
+      <div class="benefit-title">Garantía</div>
+      <div class="benefit-text">1 Año</div>
+    </div>
+    <div class="benefit-item">
+      <img src="assets/icon-marcas.png" alt="Marcas">
+      <div class="benefit-title">Marcas</div>
+      <div class="benefit-text">reconocidas</div>
+    </div>
+  </div>
+
   <img class="banner-grande" src="assets/banner-grande.jpg" alt="Banner grande">
+  <footer>
+    Creado por @hacksincodigos
+  </footer>
 </body>
 </html>
