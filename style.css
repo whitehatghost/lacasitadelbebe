@@ -284,12 +284,12 @@ input#tab6:checked ~ #content6 {
   height: 300px;
   object-fit: cover;
   border-radius: 25px;
-}
-.banner3 {
+}.banner3 {
   display: block;
   width: 100vw;
-  height: 120px;
-  object-fit: cover;
+  height: auto;
+  max-height: none;
+  object-fit: contain;
   margin: 0 auto;
   background-color: #ffffff;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
