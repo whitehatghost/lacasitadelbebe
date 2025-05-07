@@ -95,6 +95,24 @@
       flex-shrink: 0;
     }
 
+    .carousel-controls {
+      position: absolute;
+      top: 50%;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      transform: translateY(-50%);
+    }
+
+    .control {
+      background: rgba(0, 0, 0, 0.4);
+      color: white;
+      border: none;
+      padding: 10px;
+      cursor: pointer;
+      font-size: 18px;
+    }
+
     .dots {
       text-align: center;
       margin-top: 10px;
@@ -196,6 +214,10 @@
       <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/carrusel2.jpg" alt="Imagen 2">
       <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/carrusel3.jpg" alt="Imagen 3">
     </div>
+    <div class="carousel-controls">
+      <button class="control" id="prev">❮</button>
+      <button class="control" id="next">❯</button>
+    </div>
   </div>
   <div class="dots">
     <span class="dot"></span>
@@ -266,6 +288,18 @@
         showSlide(i);
         startAutoSlide();
       });
+    });
+
+    document.getElementById('prev').addEventListener('click', () => {
+      clearInterval(autoSlideInterval);
+      showSlide(currentSlide - 1);
+      startAutoSlide();
+    });
+
+    document.getElementById('next').addEventListener('click', () => {
+      clearInterval(autoSlideInterval);
+      showSlide(currentSlide + 1);
+      startAutoSlide();
     });
 
     showSlide(0);
