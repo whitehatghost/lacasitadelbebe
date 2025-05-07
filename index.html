@@ -8,93 +8,8 @@
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Inicio | La Casita del Bebé</title>
-  <link rel="icon" href="/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
   <style>
-    :root {
-      --morado: #c19adf;
-      --rosa: #fce4ec;
-      --blanco: #fff;
-      --rosado-claro: #ffe6f2;
-    }
-
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: var(--rosado-claro);
-      margin: 0;
-      padding: 0;
-    }
-
-    nav {
-      background-color: var(--morado);
-      padding: 1rem 2rem;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-
-    nav ul {
-      list-style: none;
-      display: flex;
-      gap: 1rem;
-      margin: 0;
-      padding: 0;
-    }
-
-    nav ul li a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-
-    nav ul li a:hover {
-      color: #ffe6f2;
-    }
-
-    .banner-img {
-      width: 100%;
-      border-radius: 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-    }
-
-    .bienvenida {
-      text-align: center;
-      padding: 3rem 2rem;
-      background-color: var(--blanco);
-      margin: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 6px 16px rgba(0,0,0,0.1);
-    }
-
-    .bienvenida h2 {
-      font-size: 2rem;
-      color: #4a004a;
-    }
-
-    .bienvenida p {
-      font-size: 1.1rem;
-      color: #555;
-      margin-bottom: 2rem;
-    }
-
-    .btn {
-      display: inline-block;
-      background: linear-gradient(135deg, var(--morado), #e9b3ff);
-      color: white;
-      padding: 0.8rem 1.6rem;
-      border-radius: 30px;
-      text-decoration: none;
-      font-weight: bold;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
-    }
-
-    .btn:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 6px 16px rgba(0,0,0,0.3);
-    }
-
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -126,36 +41,15 @@
       gap: 15px;
     }
 
-    .logo-container .logo {
-      height: 50px;
-      border-radius: 50%;
-    }
-
     .nombre-tienda {
-      font-size: 1.6rem;
+      font-size: 1.4rem;
       font-weight: bold;
-      color: white;
-    }
-
-    footer {
-      text-align: center;
-      padding: 1rem;
-      background: var(--morado);
-      color: white;
-    }
-
-    footer a {
-      color: #ffe6f2;
-      text-decoration: none;
+      color: var(--morado);
     }
 
     @media (max-width: 768px) {
-      nav ul {
-        flex-direction: column;
-        gap: 0.5rem;
-      }
       .nombre-tienda {
-        font-size: 1.3rem;
+        font-size: 1.2rem;
       }
     }
   </style>
@@ -178,10 +72,12 @@
   </header>
 
   <main style="margin-top: 30px;">
+    <!-- Banner principal -->
     <section class="banner">
       <img src="assets/banner.jpg" alt="Banner La Casita del Bebé" class="banner-img" />
     </section>
 
+    <!-- Sección bienvenida -->
     <section class="bienvenida">
       <h2>Bienvenidos a La Casita del Bebé 👶</h2>
       <p>Descubrí artículos encantadores, seguros y adorables para tu bebé. Productos seleccionados con amor en 🇨🇷.</p>
@@ -189,6 +85,7 @@
     </section>
   </main>
 
+  <!-- Botones flotantes con imágenes -->
   <div class="floating-buttons">
     <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
       <img src="assets/whatsapp.png" alt="WhatsApp">
