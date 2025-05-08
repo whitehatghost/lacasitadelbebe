@@ -4,7 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; style-src 'self' 'unsafe-inline'; img-src 'self' data:;">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
+    font-src https://fonts.gstatic.com;
+    img-src 'self' data: https://raw.githubusercontent.com;
+    frame-src https://www.google.com https://www.google.com/maps;
+  "/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Contacto | La Casita del Bebé</title>
@@ -57,7 +63,7 @@
       color: #4c3f63;
       font-weight: 600;
     }
-    .info-contacto {
+    .info-contacto, .horario-atencion {
       max-width: 600px;
       margin: 2rem auto;
       text-align: center;
@@ -161,23 +167,20 @@
       <p>📆 Sistema de apartados a 3 meses</p>
       <p>📱 WhatsApp: <strong>8426-8083</strong></p>
       <p>👶 Artículos para bebés 🤰🍼</p>
-      <p>
-        📌 Dirección: 300 metros Oeste y 75 Sur del palacio Municipal de Grecia, diagonal a Floristería Amaranto, Grecia, Costa Rica
-      </p>
-      <p>
-        <a href="https://www.google.com/maps/place/La+Casita+del+Beb%C3%A9/@10.0721031,-84.3172689,17z" target="_blank">Ver en Google Maps</a>
-      </p>
+      <p>📌 Dirección: 300 metros Oeste y 75 Sur del palacio Municipal de Grecia, diagonal a Floristería Amaranto, Grecia, Costa Rica</p>
+      <p><a href="https://www.google.com/maps/place/La+Casita+del+Beb%C3%A9/@10.0721031,-84.3172689,17z" target="_blank">Ver en Google Maps</a></p>
+    </section>
+
+    <section class="horario-atencion">
+      <p>⏰ <strong>Horario de Atención:</strong></p>
+      <p>Lunes a Sábado: 9:00am a 4:00pm (Jornada continua)</p>
+      <p>Domingos: Cerrado</p>
     </section>
 
     <section class="mapa">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.170670361544!2d-84.31726892403212!3d10.07210309003723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0593d3d2c3c97%3A0x7d5d50fd84aafc50!2sLa%20Casita%20del%20Beb%C3%A9!5e0!3m2!1ses-419!2scr!4v1714957220886!5m2!1ses-419!2scr" 
-        width="100%" 
-        height="500" 
-        style="border:0; min-height: 400px; display: block;" 
-        allowfullscreen="" 
-        loading="lazy" 
-        referrerpolicy="no-referrer-when-downgrade">
+        width="100%" height="500" style="border:0; min-height: 400px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
       </iframe>
     </section>
 
@@ -185,9 +188,7 @@
       <h2 style="text-align: center;">Contáctanos</h2>
       <form name="contact" method="POST" data-netlify="true" autocomplete="off" netlify-honeypot="bot-field">
         <input type="hidden" name="form-name" value="contact" />
-        <p style="display:none;">
-          <label>No llenar: <input name="bot-field" /></label>
-        </p>
+        <p style="display:none;"><label>No llenar: <input name="bot-field" /></label></p>
 
         <label for="nombre">Nombre</label>
         <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="100" pattern="[A-Za-zÁÉÍÓÚÑáéíóúñ ]{2,100}" title="Solo letras y espacios" />
@@ -213,8 +214,10 @@
   </div>
 
   <footer>
-    <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
+    <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
+    Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
+
   <section class="payment-banner">
     <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/pagos.jpg" alt="Métodos de Pago" />
   </section>
