@@ -201,11 +201,74 @@
   justify-content: center;
   align-items: center;
 }
+    .social-floating-bar {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  display: flex;
+  gap: 15px;
+  z-index: 9999;
+}
+
+.social-button img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.social-button img:hover {
+  transform: scale(1.15);
+}
+    .chat-bubble-help {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #fff3b0;
+  color: #4c3f63;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 25px;
+  padding: 15px 20px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  font-family: 'Poppins', sans-serif;
+  max-width: 260px;
+  z-index: 9998;
+  animation: floatFade 1s ease forwards;
+}
+
+@keyframes floatFade {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
     
   </style>
 </head>
 </section>
 <body>
+
+  <div class="chat-bubble-help">
+  💬 ¿Necesitás ayuda? <strong>Chateá con nosotros</strong>
+</div>
+  <div class="social-floating-bar">
+  <a href="https://wa.me/50684268083" class="social-button whatsapp" target="_blank" title="WhatsApp">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
+  </a>
+  <a href="https://www.facebook.com/CasitadelBebe1" class="social-button facebook" target="_blank" title="Facebook">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+  </a>
+  <a href="https://www.instagram.com/lacasitadelbebe_cr" class="social-button instagram" target="_blank" title="Instagram">
+    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
+  </a>
+</div>
+  
   <header>
   <nav>
     <div class="logo-container">
