@@ -4,13 +4,164 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;"/>
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
   <style>
+    .tabs {
+      max-width: 1000px;
+      margin: 40px auto;
+      padding: 0 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: flex-end;
+    }
+    .tabs input[type="radio"] {
+      display: none;
+    }
+    .tabs label {
+      padding: 0.7rem 1.2rem;
+      background: var(--morado);
+      color: white;
+      border-radius: 12px 12px 0 0;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .tabs label:hover {
+      background: #c19adf;
+    }
+    .tab-content {
+      display: none;
+      padding: 2rem;
+      background: var(--rosa);
+      border-radius: 0 0 12px 12px;
+      width: 100%;
+    }
+    input#tab1:checked ~ #content1,
+    input#tab2:checked ~ #content2,
+    input#tab3:checked ~ #content3,
+    input#tab4:checked ~ #content4,
+    input#tab5:checked ~ #content5,
+    input#tab6:checked ~ #content6,
+    input#tab7:checked ~ #content7,
+    input#tab8:checked ~ #content8,
+    input#tab9:checked ~ #content9,
+    input#tab10:checked ~ #content10,
+    input#tab11:checked ~ #content11,
+    input#tab12:checked ~ #content12 {
+      display: block;
+    }
+    .productos {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+    }
+    .producto {
+      background-color: var(--blanco);
+      border-radius: 12px;
+      padding: 1rem;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.05);
+    }
+    .producto img {
+      max-width: 100%;
+      border-radius: 8px;
+      margin-bottom: 1rem;
+    }
+    .producto h3 {
+      color: #333;
+      margin-bottom: 0.5rem;
+    }
+    .producto span {
+      display: block;
+      margin: 0.5rem 0;
+      font-weight: bold;
+      color: #555;
+    }
+    .producto div {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+    .color-circle {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      border: 1px solid #ccc;
+      display: inline-block;
+      cursor: pointer;
+    }
+    .floating-buttons {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      z-index: 1000;
+    }
+    .floating-buttons img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      object-fit: cover;
+      padding: 6px;
+      background-color: white;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s;
+    }
+    .floating-buttons img:hover {
+      transform: scale(1.1);
+    }
+    @media (max-width: 768px) {
+      .tabs {
+        flex-direction: column;
+        align-items: stretch;
+      }
+      .tabs label {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 12px;
+      }
+      
+      footer {
+      text-align: center;
+      padding: 1.2rem;
+      background-color: var(--celeste);
+      color: #333;
+      font-size: 0.9rem;
+    }
+    .extra-content {
+  background: linear-gradient(270deg,
+    #fff3b0,
+    #fceff9,
+    #b38fd4,
+    #a5d8ff,
+    #fceff9,
+    #fff3b0
+  );
+  background-size: 600% 600%;
+  animation: flowGradient 60s ease infinite;
+  border: 3px solid #dab6fc;
+  border-radius: 35px;
+  padding: 50px 40px;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
+  max-width: 950px;
+  margin: 50px auto;
+  text-align: center;
+  font-family: 'Poppins', sans-serif;
+  backdrop-filter: blur(8px);
+  transition: all 0.4s ease-in-out;
+}
+    }
     :root {
       --morado: #b38fd4;
       --celeste: #a5d8ff;
@@ -18,7 +169,6 @@
       --rosa: #fce3ee;
       --blanco: #ffffff;
     }
-
     body {
       margin: 0;
       padding: 0;
@@ -28,38 +178,6 @@
       background-repeat: repeat;
       background-size: auto;
     }
-
-    .social-floating-bar {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      gap: 15px;
-      z-index: 9999;
-    }
-
-    .social-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      width: 55px;
-      height: 55px;
-      background-color: var(--morado);
-      border-radius: 50%;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s ease;
-    }
-
-    .social-button img {
-      width: 28px;
-      height: 28px;
-      filter: brightness(0) invert(1);
-    }
-
-    .social-button:hover {
-      transform: scale(1.15);
-    }
-
     footer {
       text-align: center;
       padding: 1.2rem;
@@ -67,47 +185,25 @@
       color: #333;
       font-size: 0.9rem;
     }
-
     .payment-banner {
-      background-color: #fbddec;
+      background-color: #fdddec;
       padding: 40px 0;
-      width: 100%;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-
-    .chat-bubble-help {
-      position: fixed;
-      bottom: 90px;
-      right: 20px;
-      background: #fff3b0;
-      color: #4c3f63;
-      font-size: 1rem;
-      font-weight: 500;
-      border-radius: 25px;
-      padding: 15px 20px;
-      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-      font-family: 'Poppins', sans-serif;
-      max-width: 260px;
-      z-index: 9998;
-      animation: floatFade 1s ease forwards;
-    }
-
-    @keyframes floatFade {
-      from {
-        opacity: 0;
-        transform: translateY(20px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
-    }
+    .payment-banner {
+  background-color: #fdddec; /* exact color from image */
+  padding: 40px 0;
+  width: 100vw;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+    
   </style>
 </head>
-
-
 </section>
 <body>
   <header>
@@ -138,21 +234,7 @@
     <input type="radio" name="tab" id="tab10"><label for="tab10">Jumpers</label>
     <input type="radio" name="tab" id="tab11"><label for="tab11">Accesorios</label>
     <input type="radio" name="tab" id="tab12"><label for="tab12">Nuevos Productos</label>
-
-     <div class="chat-bubble-help">
-  💬 ¿Necesitás ayuda? <strong>Chateá con nosotros</strong>
-</div>
-  <div class="social-floating-bar">
-  <a href="https://wa.me/50684268083" class="social-button whatsapp" target="_blank" title="WhatsApp">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
-  </a>
-  <a href="https://www.facebook.com/CasitadelBebe1" class="social-button facebook" target="_blank" title="Facebook">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
-  </a>
-  <a href="https://www.instagram.com/lacasitadelbebe_cr" class="social-button instagram" target="_blank" title="Instagram">
-    <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
-  </a>
-</div>
+    
 
     <div id="content1" class="tab-content">
       <div class="productos" id="productos-coches">
@@ -793,28 +875,14 @@
       </div>
     </div>
   </main>
-  <section class="benefits">
-  <div class="benefit-item">
-    <img src="assets/icon-envio.png" alt="Envío gratis">
-    <div class="benefit-title">Envío Gratis</div>
-    <div class="benefit-text">A todo Costa Rica</div>
+  <div class="floating-buttons">
+    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
+      <img src="assets/whatsapp.png" alt="WhatsApp">
+    </a>
+    <a href="https://instagram.com/lacasitadelbebe_cr" target="_blank" title="Instagram">
+      <img src="assets/instagram.png" alt="Instagram">
+    </a>
   </div>
-  <div class="benefit-item">
-    <img src="assets/icon-cuotas.png" alt="Cuotas">
-    <div class="benefit-title">Pagá en Cuotas</div>
-    <div class="benefit-text">Hasta 3 cuotas sin interés</div>
-  </div>
-  <div class="benefit-item">
-    <img src="assets/icon-garantia.png" alt="Garantía">
-    <div class="benefit-title">Garantía</div>
-    <div class="benefit-text">En todos nuestros productos</div>
-  </div>
-  <div class="benefit-item">
-    <img src="assets/icon-marcas.png" alt="Marcas">
-    <div class="benefit-title">Las Mejores Marcas</div>
-    <div class="benefit-text">Artículos de calidad premium</div>
-  </div>
-</section>
   <footer>
     <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
     Creado por <a href="https://www.instagram.com/hacksincodigos" target="_blank" style="color: #333; text-decoration: underline;">@hacksincodigos</a></p>
@@ -867,4 +935,3 @@
 </script>
 
   
-
