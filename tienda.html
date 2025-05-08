@@ -4,164 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
   <style>
-    .tabs {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: flex-end;
-    }
-    .tabs input[type="radio"] {
-      display: none;
-    }
-    .tabs label {
-      padding: 0.7rem 1.2rem;
-      background: var(--morado);
-      color: white;
-      border-radius: 12px 12px 0 0;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-    .tabs label:hover {
-      background: #c19adf;
-    }
-    .tab-content {
-      display: none;
-      padding: 2rem;
-      background: var(--rosa);
-      border-radius: 0 0 12px 12px;
-      width: 100%;
-    }
-    input#tab1:checked ~ #content1,
-    input#tab2:checked ~ #content2,
-    input#tab3:checked ~ #content3,
-    input#tab4:checked ~ #content4,
-    input#tab5:checked ~ #content5,
-    input#tab6:checked ~ #content6,
-    input#tab7:checked ~ #content7,
-    input#tab8:checked ~ #content8,
-    input#tab9:checked ~ #content9,
-    input#tab10:checked ~ #content10,
-    input#tab11:checked ~ #content11,
-    input#tab12:checked ~ #content12 {
-      display: block;
-    }
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-    .producto {
-      background-color: var(--blanco);
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-    .producto img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-    .producto h3 {
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-    .producto span {
-      display: block;
-      margin: 0.5rem 0;
-      font-weight: bold;
-      color: #555;
-    }
-    .producto div {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-    .color-circle {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      display: inline-block;
-      cursor: pointer;
-    }
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-    .floating-buttons img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      padding: 6px;
-      background-color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-    }
-    .floating-buttons img:hover {
-      transform: scale(1.1);
-    }
-    @media (max-width: 768px) {
-      .tabs {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .tabs label {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        border-radius: 12px;
-      }
-      
-      footer {
-      text-align: center;
-      padding: 1.2rem;
-      background-color: var(--celeste);
-      color: #333;
-      font-size: 0.9rem;
-    }
-    .extra-content {
-  background: linear-gradient(270deg,
-    #fff3b0,
-    #fceff9,
-    #b38fd4,
-    #a5d8ff,
-    #fceff9,
-    #fff3b0
-  );
-  background-size: 600% 600%;
-  animation: flowGradient 60s ease infinite;
-  border: 3px solid #dab6fc;
-  border-radius: 35px;
-  padding: 50px 40px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  max-width: 950px;
-  margin: 50px auto;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  backdrop-filter: blur(8px);
-  transition: all 0.4s ease-in-out;
-}
-    }
     :root {
       --morado: #b38fd4;
       --celeste: #a5d8ff;
@@ -169,6 +18,13 @@
       --rosa: #fce3ee;
       --blanco: #ffffff;
     }
+
+    @keyframes flowGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -178,6 +34,143 @@
       background-repeat: repeat;
       background-size: auto;
     }
+
+    header {
+      padding: 20px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
+      background-size: 600% 600%;
+      animation: flowGradient 40s ease infinite;
+      padding: 10px 20px;
+      border-radius: 15px;
+    }
+
+    .logo-container {
+      display: flex;
+      align-items: center;
+    }
+
+    .logo-container img {
+      height: 60px;
+      width: 60px;
+      border-radius: 50%;
+      margin-right: 10px;
+      object-fit: cover;
+    }
+
+    .nombre-tienda {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4c3f63;
+    }
+
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 20px;
+    }
+
+    nav ul li a {
+      text-decoration: none;
+      color: #4c3f63;
+      font-weight: 600;
+    }
+
+    .social-floating-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 9999;
+    }
+
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      background-color: var(--morado);
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+
+    .social-button img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-button:hover {
+      transform: scale(1.15);
+    }
+
+    .chat-bubble-help {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: var(--amarillo);
+      color: #4c3f63;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 15px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: 'Poppins', sans-serif;
+      max-width: 260px;
+      z-index: 9998;
+      animation: floatFade 1s ease forwards;
+    }
+
+    @keyframes floatFade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .resenas {
+      background: linear-gradient(270deg, var(--celeste), var(--rosa), var(--morado));
+      background-size: 600% 600%;
+      animation: flowGradient 30s ease infinite;
+      padding: 60px 20px;
+      border-radius: 35px;
+      max-width: 900px;
+      margin: 60px auto;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    }
+
+    .resenas h3 {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 30px;
+      color: #fff;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    }
+
+    .resena {
+      background-color: var(--blanco);
+      border: 2px solid var(--celeste);
+      padding: 20px;
+      border-radius: 25px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+      font-size: 1rem;
+      color: #444;
+    }
+
     footer {
       text-align: center;
       padding: 1.2rem;
@@ -185,70 +178,33 @@
       color: #333;
       font-size: 0.9rem;
     }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
+      background-size: 600% 600%;
+      animation: flowGradient 25s ease infinite;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: transform 0.3s ease;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+    }
+
     .payment-banner {
-      background-color: #fdddec;
+      background-color: #fbddec;
       padding: 40px 0;
-      width: 100vw;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .payment-banner {
-  background-color: #fdddec; /* exact color from image */
-  padding: 40px 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-    .social-floating-bar {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 15px;
-  z-index: 9999;
-}
-
-.social-button img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-
-.social-button img:hover {
-  transform: scale(1.15);
-}
-    .chat-bubble-help {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #fff3b0;
-  color: #4c3f63;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 25px;
-  padding: 15px 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Poppins', sans-serif;
-  max-width: 260px;
-  z-index: 9998;
-  animation: floatFade 1s ease forwards;
-}
-
-@keyframes floatFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-    
   </style>
 </head>
 </section>
