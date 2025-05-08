@@ -6,17 +6,14 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' 'unsafe-inline';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
     img-src 'self' data: https://raw.githubusercontent.com https://cdn-icons-png.flaticon.com;
     frame-src https://www.google.com https://www.google.com/maps;
-    child-src https://www.google.com https://www.google.com/maps;
   "/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
-  <meta http-equiv="X-Frame-Options" content="ALLOW-FROM https://www.google.com"/>
-  <title>Quiénes Somos | La Casita del Bebé</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
+  <meta http-equiv="X-Frame-Options" content="DENY"/>
+  <title>Contacto | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
@@ -28,39 +25,26 @@
       --blanco: #ffffff;
     }
     * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
       font-family: 'Poppins', sans-serif;
     }
     body {
       background-color: #fff;
+      color: #333;
       background-image: url('https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/background.jpg');
       background-repeat: repeat;
       background-size: auto;
     }
     header {
-      background-color: var(--celeste);
-      padding: 1rem 2rem;
+      background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
+      background-size: 600% 600%;
+      animation: flowGradient 40s ease infinite;
+      padding: 20px;
+    }
+    nav {
       display: flex;
       justify-content: space-between;
       align-items: center;
       flex-wrap: wrap;
-      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
-    }
-    nav ul {
-      display: flex;
-      gap: 1.5rem;
-      list-style: none;
-    }
-    nav ul li a {
-      text-decoration: none;
-      color: #333;
-      font-weight: bold;
-      transition: color 0.3s;
-    }
-    nav ul li a:hover {
-      color: var(--morado);
     }
     .logo-container {
       display: flex;
@@ -72,36 +56,78 @@
       border-radius: 50%;
     }
     .nombre-tienda {
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       font-weight: bold;
-      color: var(--morado);
+      color: #4c3f63;
     }
-    .resenas {
-      background: linear-gradient(270deg, var(--celeste), var(--rosa), var(--morado));
-      background-size: 600% 600%;
-      animation: flowGradient 30s ease infinite;
-      padding: 60px 20px;
-      border-radius: 35px;
-      max-width: 900px;
-      margin: 60px auto;
-      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
     }
-    .resenas h3 {
+    nav ul li a {
+      text-decoration: none;
+      color: #4c3f63;
+      font-weight: 600;
+    }
+    .info-contacto, .horario-atencion {
+      max-width: 600px;
+      margin: 2rem auto;
       text-align: center;
-      font-size: 2rem;
-      margin-bottom: 30px;
-      color: #fff;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    }
-    .resena {
-      background-color: var(--blanco);
-      border: 2px solid var(--celeste);
-      padding: 20px;
-      border-radius: 25px;
-      margin-bottom: 20px;
-      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
       font-size: 1rem;
-      color: #444;
+      background: var(--celeste);
+      padding: 1.5rem;
+      border-radius: 12px;
+    }
+    .info-contacto a {
+      color: #000;
+      text-decoration: underline;
+      font-weight: bold;
+    }
+    form {
+      max-width: 600px;
+      margin: 40px auto;
+      padding: 2rem;
+      background: var(--rosa);
+      border-radius: 12px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    form input, form textarea {
+      width: 100%;
+      padding: 0.8rem;
+      margin-bottom: 1rem;
+      border: none;
+      border-radius: 8px;
+      background: #fff;
+      font-size: 1rem;
+    }
+    form input:focus, form textarea:focus {
+      outline: 2px solid var(--celeste);
+    }
+    form button {
+      background: var(--morado);
+      color: white;
+      padding: 0.8rem 1.2rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+    }
+    form button:hover {
+      background: #c19adf;
+    }
+    .mapa {
+      max-width: 1000px;
+      margin: 2rem auto;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 10px rgba(0,0,0,0.15);
+      background: var(--blanco);
+    }
+    @keyframes flowGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
     footer {
       text-align: center;
@@ -111,24 +137,30 @@
       font-size: 0.9rem;
     }
     .payment-banner {
-      background-color: #fbddec;
+      background-color: #fce3ee;
       padding: 40px 0;
-      width: 100%;
+      width: 100vw;
       display: flex;
       justify-content: center;
       align-items: center;
+    }
+    .payment-banner img {
+      max-width: 90%;
+      height: auto;
+      object-fit: contain;
     }
     .chat-bubble-help {
       position: fixed;
       bottom: 90px;
       right: 20px;
-      background: var(--amarillo);
+      background: #fff3b0;
       color: #4c3f63;
       font-size: 1rem;
       font-weight: 500;
       border-radius: 25px;
       padding: 15px 20px;
       box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: 'Poppins', sans-serif;
       max-width: 260px;
       z-index: 9998;
       animation: floatFade 1s ease forwards;
@@ -155,11 +187,6 @@
     .social-button img:hover {
       transform: scale(1.15);
     }
-    @keyframes flowGradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
-    }
   </style>
 </head>
 <body>
@@ -178,30 +205,50 @@
     </nav>
   </header>
 
-  <section class="resenas">
-    <h3>Clientes Felices 💕</h3>
-    <div class="resena"><strong>Ana R.</strong>: “Me encantó el coche. Llegó en 2 días por Correos de Costa Rica. ¡Súper rápido y en perfecto estado!”</div>
-    <div class="resena"><strong>María C.</strong>: “Atención excelente y productos hermosos. Mi bebé duerme feliz en su nueva cuna. Llegó sin problemas.”</div>
-    <div class="resena"><strong>Laura V.</strong>: “Compré una silla de comer. Es resistente, bonita y muy segura. La entrega fue puntual.”</div>
-    <div class="resena"><strong>Katherine M.</strong>: “Soy de Guanacaste y todo llegó perfecto. Gracias por ser tan profesionales.”</div>
-    <div class="resena"><strong>Nicole T.</strong>: “Muy feliz con mi compra. Recibí todo por Correos sin contratiempos. Excelente tienda.”</div>
-    <div class="resena"><strong>Daniela F.</strong>: “La atención al cliente es de otro nivel. Recomendados 100%. Todo llegó impecable.”</div>
-    <div class="resena"><strong>Melissa D.</strong>: “Me resolvieron todo por WhatsApp. Fácil, rápido y el producto llegó antes de lo esperado.”</div>
-    <div class="resena"><strong>Andrea G.</strong>: “Encantada con la mesedora. Llegó en cajita y muy bien empacada. Gracias por tanto amor.”</div>
-    <div class="resena"><strong>Gabriela B.</strong>: “Primera vez que compro online y me sorprendió lo bien que funcionó. Envío rápido.”</div>
-    <div class="resena"><strong>Fabiola S.</strong>: “Todo hermoso, de calidad, y sin retrasos. ¡Los recomiendo con los ojos cerrados!”</div>
-  </section>
+  <main>
+    <section class="info-contacto">
+      <p>📍 <strong>Grecia, Alajuela</strong></p>
+      <p>🚚 Realizamos envíos a todo el país por Correos de Costa Rica</p>
+      <p>📆 Sistema de apartados a 3 meses</p>
+      <p>📱 WhatsApp: <strong>8426-8083</strong></p>
+      <p>👶 Artículos para bebés 🤰🍼</p>
+      <p>📌 Dirección: 300 metros Oeste y 75 Sur del palacio Municipal de Grecia, diagonal a Floristería Amaranto, Grecia, Costa Rica</p>
+      <p><a href="https://www.google.com/maps/place/La+Casita+del+Beb%C3%A9/@10.0721031,-84.3172689,17z" target="_blank">Ver en Google Maps</a></p>
+    </section>
 
-  <footer>
-    <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
-    Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
-  </footer>
+    <section class="horario-atencion">
+      <p>⏰ <strong>Horario de Atención:</strong></p>
+      <p>Lunes a Sábado: 9:00am a 4:00pm (Jornada continua)</p>
+      <p>Domingos: Cerrado</p>
+    </section>
 
-  <section class="payment-banner">
-    <img src="assets/pagos.jpg" alt="Métodos de Pago" />
-  </section>
+    <section class="mapa">
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="500" style="border:0; min-height: 400px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    </section>
 
-  <div class="chat-bubble-help">💬 ¿Necesitás ayuda? <strong>Chateá con nosotros</strong></div>
+    <section class="formulario">
+      <h2 style="text-align: center;">Contáctanos</h2>
+      <form name="contact" method="POST" data-netlify="true" autocomplete="off" netlify-honeypot="bot-field">
+        <input type="hidden" name="form-name" value="contact" />
+        <p style="display:none;"><label>No llenar: <input name="bot-field" /></label></p>
+
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" required minlength="2" maxlength="100" pattern="[A-Za-zÁÉÍÓÚÑáéíóúñ ]{2,100}" title="Solo letras y espacios" />
+
+        <label for="correo">Correo electrónico</label>
+        <input type="email" name="correo" id="correo" required maxlength="120" />
+
+        <label for="mensaje">Mensaje</label>
+        <textarea name="mensaje" id="mensaje" required minlength="5" maxlength="1000" rows="6" placeholder="Escribí tu mensaje..."></textarea>
+
+        <button type="submit">Enviar</button>
+      </form>
+    </section>
+  </main>
+
+  <div class="chat-bubble-help">
+    💬 ¿Necesitás ayuda? <strong>Chateá con nosotros</strong>
+  </div>
 
   <div class="social-floating-bar">
     <a href="https://wa.me/50684268083" class="social-button whatsapp" target="_blank" title="WhatsApp">
@@ -214,5 +261,14 @@
       <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
     </a>
   </div>
+
+  <footer>
+    <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
+    Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
+  </footer>
+
+  <section class="payment-banner">
+    <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/pagos.jpg" alt="Métodos de Pago" />
+  </section>
 </body>
 </html>
