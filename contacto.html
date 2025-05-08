@@ -8,7 +8,7 @@
     default-src 'self';
     style-src 'self' 'unsafe-inline' https://fonts.googleapis.com;
     font-src https://fonts.gstatic.com;
-    img-src 'self' data: https://raw.githubusercontent.com;
+    img-src 'self' data: https://raw.githubusercontent.com https://cdn-icons-png.flaticon.com;
     frame-src https://www.google.com https://www.google.com/maps;
   "/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
@@ -142,6 +142,44 @@
       height: auto;
       object-fit: contain;
     }
+    .chat-bubble-help {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #fff3b0;
+      color: #4c3f63;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 15px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: 'Poppins', sans-serif;
+      max-width: 260px;
+      z-index: 9998;
+      animation: floatFade 1s ease forwards;
+    }
+    @keyframes floatFade {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .social-floating-bar {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      display: flex;
+      gap: 15px;
+      z-index: 9999;
+    }
+    .social-button img {
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
+    }
+    .social-button img:hover {
+      transform: scale(1.15);
+    }
   </style>
 </head>
 <body>
@@ -178,10 +216,7 @@
     </section>
 
     <section class="mapa">
-      <iframe 
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.170670361544!2d-84.31726892403212!3d10.07210309003723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0593d3d2c3c97%3A0x7d5d50fd84aafc50!2sLa%20Casita%20del%20Beb%C3%A9!5e0!3m2!1ses-419!2scr!4v1714957220886!5m2!1ses-419!2scr" 
-        width="100%" height="500" style="border:0; min-height: 400px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
-      </iframe>
+      <iframe src="https://www.google.com/maps/embed?pb=!1m18..." width="100%" height="500" style="border:0; min-height: 400px; display: block;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
     </section>
 
     <section class="formulario">
@@ -204,12 +239,19 @@
     </section>
   </main>
 
-  <div class="floating-buttons">
-    <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
-      <img src="assets/whatsapp.png" alt="WhatsApp">
+  <div class="chat-bubble-help">
+    💬 ¿Necesitás ayuda? <strong>Chateá con nosotros</strong>
+  </div>
+
+  <div class="social-floating-bar">
+    <a href="https://wa.me/50684268083" class="social-button whatsapp" target="_blank" title="WhatsApp">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png" alt="WhatsApp" />
     </a>
-    <a href="https://instagram.com/lacasitadelbebe_cr" target="_blank" title="Instagram">
-      <img src="assets/instagram.png" alt="Instagram">
+    <a href="https://www.facebook.com/CasitadelBebe1" class="social-button facebook" target="_blank" title="Facebook">
+      <img src="https://cdn-icons-png.flaticon.com/512/733/733547.png" alt="Facebook" />
+    </a>
+    <a href="https://www.instagram.com/lacasitadelbebe_cr" class="social-button instagram" target="_blank" title="Instagram">
+      <img src="https://cdn-icons-png.flaticon.com/512/2111/2111463.png" alt="Instagram" />
     </a>
   </div>
 
