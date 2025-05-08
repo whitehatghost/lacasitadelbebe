@@ -9,7 +9,54 @@
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Contacto | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <style>
+    :root {
+      --morado: #b38fd4;
+      --celeste: #a5d8ff;
+      --amarillo: #fff3b0;
+      --rosa: #fce3ee;
+      --blanco: #ffffff;
+    }
+    * {
+      font-family: 'Poppins', sans-serif;
+    }
+    header {
+      background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
+      background-size: 600% 600%;
+      animation: flowGradient 40s ease infinite;
+      padding: 20px;
+    }
+    nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 15px;
+    }
+    .logo {
+      height: 60px;
+      border-radius: 50%;
+    }
+    .nombre-tienda {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #4c3f63;
+    }
+    nav ul {
+      display: flex;
+      gap: 1.5rem;
+      list-style: none;
+    }
+    nav ul li a {
+      text-decoration: none;
+      color: #4c3f63;
+      font-weight: 600;
+    }
     .info-contacto {
       max-width: 600px;
       margin: 2rem auto;
@@ -19,13 +66,11 @@
       padding: 1.5rem;
       border-radius: 12px;
     }
-
     .info-contacto a {
       color: #000;
       text-decoration: underline;
       font-weight: bold;
     }
-
     form {
       max-width: 600px;
       margin: 40px auto;
@@ -34,7 +79,6 @@
       border-radius: 12px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-
     form input, form textarea {
       width: 100%;
       padding: 0.8rem;
@@ -44,11 +88,9 @@
       background: #fff;
       font-size: 1rem;
     }
-
     form input:focus, form textarea:focus {
       outline: 2px solid var(--celeste);
     }
-
     form button {
       background: var(--morado);
       color: white;
@@ -58,36 +100,9 @@
       cursor: pointer;
       font-size: 1rem;
     }
-
     form button:hover {
       background: #c19adf;
     }
-
-    .floating-buttons {
-      position: fixed;
-      bottom: 20px;
-      right: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
-    }
-
-    .floating-buttons img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      padding: 6px;
-      background-color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-    }
-
-    .floating-buttons img:hover {
-      transform: scale(1.1);
-    }
-
     .mapa {
       max-width: 1000px;
       margin: 2rem auto;
@@ -96,33 +111,34 @@
       box-shadow: 0 0 10px rgba(0,0,0,0.15);
       background: var(--blanco);
     }
-
-    .logo-container {
+    @keyframes flowGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    footer {
+      text-align: center;
+      padding: 1.2rem;
+      background-color: var(--celeste);
+      color: #333;
+      font-size: 0.9rem;
+    }
+    .payment-banner {
+      background-color: #fce3ee;
+      padding: 40px 0;
+      width: 100vw;
       display: flex;
+      justify-content: center;
       align-items: center;
-      gap: 15px;
     }
-
-    .logo {
-      height: 60px;
-      border-radius: 50%;
-    }
-
-    .nombre-tienda {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--morado);
-    }
-
-    @media (max-width: 768px) {
-      .nombre-tienda {
-        font-size: 1.2rem;
-      }
+    .payment-banner img {
+      max-width: 90%;
+      height: auto;
+      object-fit: contain;
     }
   </style>
 </head>
 <body>
-
   <header>
     <nav>
       <div class="logo-container">
@@ -139,8 +155,6 @@
   </header>
 
   <main>
-
-    <!-- Información de contacto -->
     <section class="info-contacto">
       <p>📍 <strong>Grecia, Alajuela</strong></p>
       <p>🚚 Realizamos envíos a todo el país por Correos de Costa Rica</p>
@@ -155,7 +169,6 @@
       </p>
     </section>
 
-    <!-- Mapa embebido -->
     <section class="mapa">
       <iframe 
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.170670361544!2d-84.31726892403212!3d10.07210309003723!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8fa0593d3d2c3c97%3A0x7d5d50fd84aafc50!2sLa%20Casita%20del%20Beb%C3%A9!5e0!3m2!1ses-419!2scr!4v1714957220886!5m2!1ses-419!2scr" 
@@ -168,7 +181,6 @@
       </iframe>
     </section>
 
-    <!-- Formulario al final -->
     <section class="formulario">
       <h2 style="text-align: center;">Contáctanos</h2>
       <form name="contact" method="POST" data-netlify="true" autocomplete="off" netlify-honeypot="bot-field">
@@ -189,10 +201,8 @@
         <button type="submit">Enviar</button>
       </form>
     </section>
-
   </main>
 
-  <!-- Botones flotantes -->
   <div class="floating-buttons">
     <a href="https://wa.me/50684268083" target="_blank" title="WhatsApp">
       <img src="assets/whatsapp.png" alt="WhatsApp">
@@ -206,8 +216,7 @@
     <p>Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
   <section class="payment-banner">
-  <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/pagos.jpg" alt="Métodos de Pago" />
-</section>
-
+    <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/pagos.jpg" alt="Métodos de Pago" />
+  </section>
 </body>
 </html>
