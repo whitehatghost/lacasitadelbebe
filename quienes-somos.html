@@ -19,6 +19,12 @@
       --blanco: #ffffff;
     }
 
+    @keyframes flowGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
     body {
       margin: 0;
       padding: 0;
@@ -30,7 +36,9 @@
     }
 
     header {
-      background-color: var(--rosa);
+      background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
+      background-size: 600% 600%;
+      animation: flowGradient 40s ease infinite;
       padding: 20px;
     }
 
@@ -129,12 +137,6 @@
         opacity: 1;
         transform: translateY(0);
       }
-    }
-
-    @keyframes flowGradient {
-      0% { background-position: 0% 50%; }
-      50% { background-position: 100% 50%; }
-      100% { background-position: 0% 50%; }
     }
 
     .resenas {
