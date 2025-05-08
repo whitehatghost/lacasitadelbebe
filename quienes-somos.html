@@ -11,105 +11,91 @@
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
   <style>
-    .floating-buttons {
+    :root {
+      --morado: #b38fd4;
+      --celeste: #a5d8ff;
+      --amarillo: #fff3b0;
+      --rosa: #fce3ee;
+      --blanco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      background-image: url('assets/background.jpg');
+      background-repeat: repeat;
+      background-size: auto;
+    }
+
+    .social-floating-bar {
       position: fixed;
       bottom: 20px;
       right: 20px;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
+      gap: 15px;
+      z-index: 9999;
     }
 
-    .floating-buttons img {
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      object-fit: cover;
-      padding: 6px;
-      background-color: white;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
-    }
-
-    .floating-buttons img:hover {
-      transform: scale(1.1);
-    }
-
-    .logo-container {
+    .social-button {
       display: flex;
       align-items: center;
-      gap: 15px;
-    }
-
-    .logo {
-      height: 60px;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      background-color: var(--morado);
       border-radius: 50%;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+      transition: transform 0.2s ease;
     }
 
-    .nombre-tienda {
-      font-size: 1.4rem;
-      font-weight: bold;
-      color: var(--morado);
+    .social-button img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
     }
 
-    .quienes-somos {
-      background-color: var(--celeste);
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 800px;
-      margin: 30px auto;
+    .social-button:hover {
+      transform: scale(1.15);
     }
 
-    .quienes-somos h2 {
-      text-align: center;
-      color: #444;
-      margin-bottom: 1.5rem;
+    .chat-bubble-help {
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #fff3b0;
+      color: #4c3f63;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 15px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: 'Poppins', sans-serif;
+      max-width: 260px;
+      z-index: 9998;
+      animation: floatFade 1s ease forwards;
     }
 
-    .quienes-somos p {
-      margin-bottom: 1rem;
-      line-height: 1.6;
-      color: #333;
-    }
-
-    .quienes-somos a {
-      color: #8e44ad;
-      font-weight: bold;
-    }
-
-    .resenas {
-      background-color: var(--amarillo);
-      padding: 2rem;
-      border-radius: 10px;
-      max-width: 1000px;
-      margin: 30px auto;
-    }
-
-    .resenas h3 {
-      text-align: center;
-      margin-bottom: 1rem;
-      color: #555;
-    }
-
-    .resena {
-      background: #fff;
-      border-left: 5px solid var(--morado);
-      padding: 1rem;
-      margin-bottom: 1rem;
-      border-radius: 8px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
-    }
-
-    .resena strong {
-      color: #222;
-    }
-
-    @media (max-width: 768px) {
-      .nombre-tienda {
-        font-size: 1.2rem;
+    @keyframes floatFade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
       }
-    
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .payment-banner {
+      background-color: #fbddec;
+      padding: 40px 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
     footer {
       text-align: center;
@@ -118,69 +104,6 @@
       color: #333;
       font-size: 0.9rem;
     }
-    .payment-banner {
-      background-color: #fdddec;
-      padding: 40px 0;
-      width: 100vw;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-    }
-    .payment-banner {
-  background-color: #fdddec; /* exact color from image */
-  padding: 40px 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-    .social-floating-bar {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 15px;
-  z-index: 9999;
-}
-
-.social-button img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-
-.social-button img:hover {
-  transform: scale(1.15);
-}
-    .chat-bubble-help {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #fff3b0;
-  color: #4c3f63;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 25px;
-  padding: 15px 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Poppins', sans-serif;
-  max-width: 260px;
-  z-index: 9998;
-  animation: floatFade 1s ease forwards;
-}
-
-@keyframes floatFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
   </style>
 </head>
 <body>
