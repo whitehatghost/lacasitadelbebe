@@ -131,17 +131,16 @@
       }
     }
 
-    .payment-banner {
-      background-color: #fbddec;
-      padding: 40px 0;
-      width: 100%;
-      display: flex;
-      justify-content: center;
-      align-items: center;
+    @keyframes flowGradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
     }
 
     .resenas {
-      background: linear-gradient(135deg, var(--celeste), var(--rosa), var(--morado));
+      background: linear-gradient(270deg, var(--celeste), var(--rosa), var(--morado));
+      background-size: 600% 600%;
+      animation: flowGradient 30s ease infinite;
       padding: 60px 20px;
       border-radius: 35px;
       max-width: 900px;
@@ -190,6 +189,15 @@
 
     .btn:hover {
       background-color: #a77cc9;
+    }
+
+    .payment-banner {
+      background-color: #fbddec;
+      padding: 40px 0;
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
   </style>
 </head>
