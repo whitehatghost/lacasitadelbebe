@@ -238,27 +238,18 @@
   animation: floatFade 1s ease forwards;
 }
 
-@keyframes floatFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  header {
+@keyframes flowGradient {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+header {
   background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
   background-size: 600% 600%;
   background-position: 0% 50%;
   animation: flowGradient 40s ease infinite;
   padding: 20px;
-}
-
-@keyframes flowGradient {
-  0% { background-position: 0% 50%; }
-  50% { background-position: 100% 50%; }
-  100% { background-position: 0% 50%; }
 }
     nav {
   display: flex;
