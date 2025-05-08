@@ -29,128 +29,35 @@
       background-size: auto;
     }
 
-    .tabs {
-      max-width: 1000px;
-      margin: 40px auto;
-      padding: 0 1rem;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      align-items: flex-end;
-    }
-
-    .tabs input[type="radio"] {
-      display: none;
-    }
-
-    .tabs label {
-      padding: 0.7rem 1.2rem;
-      background: var(--morado);
-      color: white;
-      border-radius: 12px 12px 0 0;
-      cursor: pointer;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .tabs label:hover {
-      background: #c19adf;
-    }
-
-    .tab-content {
-      display: none;
-      padding: 2rem;
-      background: var(--rosa);
-      border-radius: 0 0 12px 12px;
-      width: 100%;
-    }
-
-    input#tab1:checked ~ #content1,
-    input#tab2:checked ~ #content2,
-    input#tab3:checked ~ #content3,
-    input#tab4:checked ~ #content4,
-    input#tab5:checked ~ #content5,
-    input#tab6:checked ~ #content6,
-    input#tab7:checked ~ #content7,
-    input#tab8:checked ~ #content8,
-    input#tab9:checked ~ #content9,
-    input#tab10:checked ~ #content10,
-    input#tab11:checked ~ #content11,
-    input#tab12:checked ~ #content12 {
-      display: block;
-    }
-
-    .productos {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 2rem;
-    }
-
-    .producto {
-      background-color: var(--blanco);
-      border-radius: 12px;
-      padding: 1rem;
-      text-align: center;
-      box-shadow: 0 0 10px rgba(0,0,0,0.05);
-    }
-
-    .producto img {
-      max-width: 100%;
-      border-radius: 8px;
-      margin-bottom: 1rem;
-    }
-
-    .producto h3 {
-      color: #333;
-      margin-bottom: 0.5rem;
-    }
-
-    .producto span {
-      display: block;
-      margin: 0.5rem 0;
-      font-weight: bold;
-      color: #555;
-    }
-
-    .producto div {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 8px;
-    }
-
-    .color-circle {
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      border: 1px solid #ccc;
-      display: inline-block;
-      cursor: pointer;
-    }
-
-    .floating-buttons {
+    .social-floating-bar {
       position: fixed;
       bottom: 20px;
       right: 20px;
       display: flex;
-      flex-direction: column;
-      gap: 10px;
-      z-index: 1000;
+      gap: 15px;
+      z-index: 9999;
     }
 
-    .floating-buttons img {
-      width: 50px;
-      height: 50px;
+    .social-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 55px;
+      height: 55px;
+      background-color: var(--morado);
       border-radius: 50%;
-      object-fit: cover;
-      padding: 6px;
-      background-color: white;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-      transition: transform 0.2s;
+      transition: transform 0.2s ease;
     }
 
-    .floating-buttons img:hover {
-      transform: scale(1.1);
+    .social-button img {
+      width: 28px;
+      height: 28px;
+      filter: brightness(0) invert(1);
+    }
+
+    .social-button:hover {
+      transform: scale(1.15);
     }
 
     footer {
@@ -195,83 +102,6 @@
       to {
         opacity: 1;
         transform: translateY(0);
-      }
-    }
-
-    .benefits {
-      display: flex;
-      justify-content: space-evenly;
-      align-items: center;
-      padding: 100px 30px;
-      width: 100%;
-      background: linear-gradient(to right, #ffe6f0, #e6f0ff);
-      border-radius: 30px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-      box-sizing: border-box;
-      flex-wrap: wrap;
-    }
-
-    .benefit-item {
-      flex: 1;
-      text-align: center;
-      padding: 50px 30px;
-      max-width: 400px;
-      min-width: 250px;
-    }
-
-    .benefit-item img {
-      width: 150px;
-      height: auto;
-      margin-bottom: 30px;
-    }
-
-    .benefit-title {
-      font-size: 48px;
-      font-weight: bold;
-      color: #e91e63;
-      margin-bottom: 20px;
-    }
-
-    .benefit-text {
-      font-size: 28px;
-      color: #333;
-      line-height: 1.7;
-    }
-
-    @media (max-width: 768px) {
-      .tabs {
-        flex-direction: column;
-        align-items: stretch;
-      }
-
-      .tabs label {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        border-radius: 12px;
-      }
-
-      .benefits {
-        flex-direction: column;
-        padding: 60px 15px;
-      }
-
-      .benefit-item {
-        max-width: 100%;
-        padding: 40px 10px;
-      }
-
-      .benefit-item img {
-        width: 110px;
-      }
-
-      .benefit-title {
-        font-size: 36px;
-      }
-
-      .benefit-text {
-        font-size: 22px;
       }
     }
   </style>
