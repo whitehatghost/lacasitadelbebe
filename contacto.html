@@ -10,9 +10,10 @@
     font-src https://fonts.gstatic.com;
     img-src 'self' data: https://raw.githubusercontent.com https://cdn-icons-png.flaticon.com;
     frame-src https://www.google.com https://www.google.com/maps;
+    child-src https://www.google.com https://www.google.com/maps;
   "/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
-  <meta http-equiv="X-Frame-Options" content="DENY"/>
+  <meta http-equiv="X-Frame-Options" content="ALLOW-FROM https://www.google.com"/>
   <title>Contacto | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
