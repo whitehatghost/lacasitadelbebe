@@ -247,6 +247,15 @@
     opacity: 1;
     transform: translateY(0);
   }
+  @keyframes navBreathing {
+  0% { box-shadow: 0 0 12px rgba(179, 143, 212, 0.2); }
+  50% { box-shadow: 0 0 22px rgba(179, 143, 212, 0.5); }
+  100% { box-shadow: 0 0 12px rgba(179, 143, 212, 0.2); }
+}
+
+nav {
+  animation: navBreathing 6s ease-in-out infinite;
+}
 }
     
   </style>
