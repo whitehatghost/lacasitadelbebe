@@ -24,17 +24,18 @@ body {
 
 /* Header y navegación */
 header {
-  background-color: var(--celeste);
-  padding: 1rem 2rem;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
+    background: linear-gradient(270deg, var(--rosa), var(--morado), var(--celeste));
+    background-size: 600% 600%;
+    animation: flowGradient 40s ease infinite;
+    padding: 20px;
+  }
 
 nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-wrap: wrap;
-}
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+  }
 
 nav h1 {
   font-size: 1.5rem;
@@ -229,16 +230,6 @@ footer a:hover {
   transition: transform 0.2s;
 }
 
-.floating-buttons a.instagram {
-  background-color: #d62976;
-}
-
-.floating-buttons a:hover {
-  transform: scale(1.1);
-}
-.floating-buttons a:hover {
-  transform: scale(1.1);
-}
 .logo-container {
   display: flex;
   align-items: center;
