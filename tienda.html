@@ -4,13 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
   <style>
+    :root {
+      --morado: #b38fd4;
+      --celeste: #a5d8ff;
+      --amarillo: #fff3b0;
+      --rosa: #fce3ee;
+      --blanco: #ffffff;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Poppins', sans-serif;
+      background-color: #fff;
+      background-image: url('assets/background.jpg');
+      background-repeat: repeat;
+      background-size: auto;
+    }
+
     .tabs {
       max-width: 1000px;
       margin: 40px auto;
@@ -20,9 +38,11 @@
       gap: 8px;
       align-items: flex-end;
     }
+
     .tabs input[type="radio"] {
       display: none;
     }
+
     .tabs label {
       padding: 0.7rem 1.2rem;
       background: var(--morado);
@@ -32,9 +52,11 @@
       font-weight: bold;
       transition: background 0.3s;
     }
+
     .tabs label:hover {
       background: #c19adf;
     }
+
     .tab-content {
       display: none;
       padding: 2rem;
@@ -42,6 +64,7 @@
       border-radius: 0 0 12px 12px;
       width: 100%;
     }
+
     input#tab1:checked ~ #content1,
     input#tab2:checked ~ #content2,
     input#tab3:checked ~ #content3,
@@ -56,11 +79,13 @@
     input#tab12:checked ~ #content12 {
       display: block;
     }
+
     .productos {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 2rem;
     }
+
     .producto {
       background-color: var(--blanco);
       border-radius: 12px;
@@ -68,27 +93,32 @@
       text-align: center;
       box-shadow: 0 0 10px rgba(0,0,0,0.05);
     }
+
     .producto img {
       max-width: 100%;
       border-radius: 8px;
       margin-bottom: 1rem;
     }
+
     .producto h3 {
       color: #333;
       margin-bottom: 0.5rem;
     }
+
     .producto span {
       display: block;
       margin: 0.5rem 0;
       font-weight: bold;
       color: #555;
     }
+
     .producto div {
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
       gap: 8px;
     }
+
     .color-circle {
       width: 20px;
       height: 20px;
@@ -97,6 +127,7 @@
       display: inline-block;
       cursor: pointer;
     }
+
     .floating-buttons {
       position: fixed;
       bottom: 20px;
@@ -106,6 +137,7 @@
       gap: 10px;
       z-index: 1000;
     }
+
     .floating-buttons img {
       width: 50px;
       height: 50px;
@@ -116,68 +148,11 @@
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
       transition: transform 0.2s;
     }
+
     .floating-buttons img:hover {
       transform: scale(1.1);
     }
-    @media (max-width: 768px) {
-      .tabs {
-        flex-direction: column;
-        align-items: stretch;
-      }
-      .tabs label {
-        display: block;
-        width: 100%;
-        margin-bottom: 10px;
-        text-align: center;
-        border-radius: 12px;
-      }
-      
-      footer {
-      text-align: center;
-      padding: 1.2rem;
-      background-color: var(--celeste);
-      color: #333;
-      font-size: 0.9rem;
-    }
-    .extra-content {
-  background: linear-gradient(270deg,
-    #fff3b0,
-    #fceff9,
-    #b38fd4,
-    #a5d8ff,
-    #fceff9,
-    #fff3b0
-  );
-  background-size: 600% 600%;
-  animation: flowGradient 60s ease infinite;
-  border: 3px solid #dab6fc;
-  border-radius: 35px;
-  padding: 50px 40px;
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.08);
-  max-width: 950px;
-  margin: 50px auto;
-  text-align: center;
-  font-family: 'Poppins', sans-serif;
-  backdrop-filter: blur(8px);
-  transition: all 0.4s ease-in-out;
-}
-    }
-    :root {
-      --morado: #b38fd4;
-      --celeste: #a5d8ff;
-      --amarillo: #fff3b0;
-      --rosa: #fce3ee;
-      --blanco: #ffffff;
-    }
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Poppins', sans-serif;
-      background-color: #fff;
-      background-image: url('assets/background.jpg');
-      background-repeat: repeat;
-      background-size: auto;
-    }
+
     footer {
       text-align: center;
       padding: 1.2rem;
@@ -185,134 +160,124 @@
       color: #333;
       font-size: 0.9rem;
     }
+
     .payment-banner {
-      background-color: #fdddec;
+      background-color: #fbddec;
       padding: 40px 0;
-      width: 100vw;
+      width: 100%;
       display: flex;
       justify-content: center;
       align-items: center;
     }
-    .payment-banner {
-  background-color: #fdddec; /* exact color from image */
-  padding: 40px 0;
-  width: 100vw;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-    .social-floating-bar {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  display: flex;
-  gap: 15px;
-  z-index: 9999;
-}
 
-.social-button img {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  transition: transform 0.2s ease;
-}
-
-.social-button img:hover {
-  transform: scale(1.15);
-}
     .chat-bubble-help {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #fff3b0;
-  color: #4c3f63;
-  font-size: 1rem;
-  font-weight: 500;
-  border-radius: 25px;
-  padding: 15px 20px;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
-  font-family: 'Poppins', sans-serif;
-  max-width: 260px;
-  z-index: 9998;
-  animation: floatFade 1s ease forwards;
-}
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #fff3b0;
+      color: #4c3f63;
+      font-size: 1rem;
+      font-weight: 500;
+      border-radius: 25px;
+      padding: 15px 20px;
+      box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+      font-family: 'Poppins', sans-serif;
+      max-width: 260px;
+      z-index: 9998;
+      animation: floatFade 1s ease forwards;
+    }
 
-@keyframes floatFade {
-  from {
-    opacity: 0;
-    transform: translateY(20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .benefits {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    padding: 100px 30px;
-    width: 100%;
-    background: linear-gradient(to right, #ffe6f0, #e6f0ff);
-    border-radius: 30px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
-    box-sizing: border-box;
-    flex-wrap: wrap;
-  }
+    @keyframes floatFade {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
 
-  .benefit-item {
-    flex: 1;
-    text-align: center;
-    padding: 50px 30px;
-    max-width: 400px;
-    min-width: 250px;
-  }
-
-  .benefit-item img {
-    width: 150px;
-    height: auto;
-    margin-bottom: 30px;
-  }
-
-  .benefit-title {
-    font-size: 48px;
-    font-weight: bold;
-    color: #e91e63;
-    margin-bottom: 20px;
-  }
-
-  .benefit-text {
-    font-size: 28px;
-    color: #333;
-    line-height: 1.7;
-  }
-
-  @media (max-width: 768px) {
     .benefits {
-      flex-direction: column;
-      padding: 60px 15px;
+      display: flex;
+      justify-content: space-evenly;
+      align-items: center;
+      padding: 100px 30px;
+      width: 100%;
+      background: linear-gradient(to right, #ffe6f0, #e6f0ff);
+      border-radius: 30px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+      box-sizing: border-box;
+      flex-wrap: wrap;
     }
 
     .benefit-item {
-      max-width: 100%;
-      padding: 40px 10px;
+      flex: 1;
+      text-align: center;
+      padding: 50px 30px;
+      max-width: 400px;
+      min-width: 250px;
     }
 
     .benefit-item img {
-      width: 110px;
+      width: 150px;
+      height: auto;
+      margin-bottom: 30px;
     }
 
     .benefit-title {
-      font-size: 36px;
+      font-size: 48px;
+      font-weight: bold;
+      color: #e91e63;
+      margin-bottom: 20px;
     }
 
     .benefit-text {
-      font-size: 22px;
+      font-size: 28px;
+      color: #333;
+      line-height: 1.7;
     }
-}
-    
+
+    @media (max-width: 768px) {
+      .tabs {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .tabs label {
+        display: block;
+        width: 100%;
+        margin-bottom: 10px;
+        text-align: center;
+        border-radius: 12px;
+      }
+
+      .benefits {
+        flex-direction: column;
+        padding: 60px 15px;
+      }
+
+      .benefit-item {
+        max-width: 100%;
+        padding: 40px 10px;
+      }
+
+      .benefit-item img {
+        width: 110px;
+      }
+
+      .benefit-title {
+        font-size: 36px;
+      }
+
+      .benefit-text {
+        font-size: 22px;
+      }
+    }
   </style>
 </head>
+
+
 </section>
 <body>
   <header>
