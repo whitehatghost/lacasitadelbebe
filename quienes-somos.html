@@ -48,7 +48,10 @@
 
     .logo-container img {
       height: 60px;
+      width: 60px;
+      border-radius: 50%;
       margin-right: 10px;
+      object-fit: cover;
     }
 
     .nombre-tienda {
@@ -171,6 +174,22 @@
       color: #333;
       font-size: 0.9rem;
     }
+
+    .btn {
+      display: inline-block;
+      padding: 12px 18px;
+      background-color: var(--morado);
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      font-weight: bold;
+      margin-top: 10px;
+      transition: background-color 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #a77cc9;
+    }
   </style>
 </head>
 <body>
@@ -203,14 +222,14 @@
     <div class="resena"><strong>Fabiola S.</strong>: “Todo hermoso, de calidad, y sin retrasos. ¡Los recomiendo con los ojos cerrados!”</div>
   </section>
 
-  <section class="payment-banner">
-    <img src="assets/pagos.jpg" alt="Métodos de Pago" />
-  </section>
-
   <footer>
     <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
     Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
+
+  <section class="payment-banner">
+    <img src="assets/pagos.jpg" alt="Métodos de Pago" />
+  </section>
 
   <div class="chat-bubble-help">¿Necesitás ayuda? Chateá con nosotros</div>
 
