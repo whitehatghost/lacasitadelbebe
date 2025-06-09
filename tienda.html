@@ -4,31 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-
-  <!-- ✅ Política CSP corregida -->
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
-
   <title>Tienda | La Casita del Bebé</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
-
-  <!-- ✅ Fuentes externas (opcional) -->
-  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500|Open+Sans:300,600" rel="stylesheet" />
-  <link href="https://fonts.bunny.net/css?family=Montserrat:300,500|Open+Sans:300,600" rel="stylesheet" />
-
-
-  <!-- Snipcart CSS -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-
-  <!-- ✅ Estilo de Snipcart -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.css" />
-
-  <!-- ✅ Script de Snipcart -->
-  <script async src="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.js"></script>
-
-  
   <style>
     .tabs {
       max-width: 1000px;
@@ -157,14 +138,6 @@
       background-color: var(--celeste);
       color: #333;
       font-size: 0.9rem;
-    }
-      .cart-button {
-      background: white;
-      color: #009688;
-      padding: 0.5em 1em;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
     }
     .extra-content {
   background: linear-gradient(270deg,
@@ -315,7 +288,6 @@ header {
       <li><a href="tienda.html">Tienda</a></li>
       <li><a href="quienes-somos.html">Quiénes Somos</a></li>
       <li><a href="contacto.html">Contacto</a></li>
-      <li><a href="#" class="snipcart-checkout cart-button">🛒 Carrito</a></li>
     </ul>
   </nav>
 </header>
@@ -336,29 +308,6 @@ header {
     
 
     <div id="content1" class="tab-content">
-
-      ########EJEMPLO SNIPCART##########3
-  
-    <div class="producto" data-base-id="coche-lisa-kid" data-name="Coche Lisa Kid" data-price="63000" data-description="Coche compacto y versátil ideal para uso diario">
-  <img src="assets/coche-lisa-kid-azul.jpg" alt="Coche Lisa Kid">
-  <h3>Coche Lisa Kid</h3>
-  <p>Coche compacto y versátil ideal para uso diario.</p>
-  <div>
-    <span class="color-circle" style="background-color: #007fff" data-src="assets/coche-lisa-kid-azul.jpg" data-color="Azul"></span>
-  </div>
-  <span>₡63,000</span>
-  <button class="btn snipcart-add-item"
-    data-item-id="coche-lisa-kid"
-    data-item-name="Coche Lisa Kid"
-    data-item-price="63000"
-    data-item-url="/"
-    data-item-description="Coche compacto y versátil ideal para uso diario"
-    data-item-image="assets/coche-lisa-kid-azul.jpg">
-    Añadir al carrito
-  </button>
-</div>
-
-      
       <div class="productos" id="productos-coches">
         <div class="producto">
   <img src="assets/mami-love-alice-rosa.jpg" alt="Coche Mami Love Alice" />
@@ -384,25 +333,16 @@ header {
   <a href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
 </div>
 
-         <!-- Producto: Coche Sombrilla Veneto -->
-<div class="producto" data-base-id="coche-sombrilla-veneto" data-name="Coche Sombrilla Veneto" data-price="49000" data-description="Liviano, plegable y fácil de transportar">
-  <img src="assets/coche-sombrilla-veneto-aqua.jpg" alt="Coche Sombrilla Veneto">
+<div class="producto">
+  <img src="assets/coche-sombrilla-veneto-aqua.jpg" alt="Coche Sombrilla Veneto" />
   <h3>Coche Sombrilla Veneto</h3>
   <p>Liviano, plegable y fácil de transportar.</p>
   <div>
-    <span class="color-circle" style="background-color: #00ffff" data-src="assets/coche-sombrilla-veneto-aqua.jpg" data-color="Aqua"></span>
-    <span class="color-circle" style="background-color: #808080" data-src="assets/coche-sombrilla-veneto-gris.jpg" data-color="Gris"></span>
+    <span class="color-circle" style="background-color: #00ffff" data-color="aqua" data-src="assets/coche-sombrilla-veneto-aqua.jpg"></span>
+    <span class="color-circle" style="background-color: #808080" data-color="gris" data-src="assets/coche-sombrilla-veneto-gris.jpg"></span>
   </div>
   <span>₡49,000</span>
-  <button class="btn snipcart-add-item"
-    data-item-id="coche-sombrilla-veneto"
-    data-item-name="Coche Sombrilla Veneto"
-    data-item-price="49000"
-    data-item-url="/"
-    data-item-description="Liviano, plegable y fácil de transportar"
-    data-item-image="assets/coche-sombrilla-veneto-aqua.jpg">
-    Añadir al carrito
-  </button>
+  <a href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
 </div>
 
 <div class="producto">
@@ -1018,10 +958,6 @@ header {
     <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
     Creado por <a href="https://www.instagram.com/hacksincodigos" target="_blank" style="color: #333; text-decoration: underline;">@hacksincodigos</a></p>
   </footer>
-
-  <!-- Snipcart Script + Key -->
-  <div hidden id="snipcart" data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz" data-config-modal-style="side"></div>
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
 
   <section class="payment-banner">
     <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/pagos.jpg" alt="Métodos de Pago" />
