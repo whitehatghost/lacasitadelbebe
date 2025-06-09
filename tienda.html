@@ -1062,6 +1062,19 @@ header {
     const nameBase = product.querySelector('.producto-nombre').innerText;
     const button = product.querySelector('.snipcart-add-item');
 
+    const defaultColor = product.querySelector('.color-circle');
+    if (defaultColor) {
+      const color = defaultColor.dataset.color;
+      const src = defaultColor.dataset.src;
+      button.setAttribute('data-item-id', nameBase.toLowerCase().replaceAll(' ', '-') + '-' + color.toLowerCase());
+      button.setAttribute('data-item-name', nameBase + ' ' + color);
+      button.setAttribute('data-item-image', src);
+      button.setAttribute('data-item-url', product.dataset.url);
+      button.setAttribute('data-item-price', product.dataset.price);
+      button.setAttribute('data-item-description', product.dataset.description);
+      button.setAttribute('data-item-currency', 'usd');
+    }
+
     product.querySelectorAll('.color-circle').forEach(circle => {
       circle.addEventListener('click', () => {
         const color = circle.dataset.color;
@@ -1074,6 +1087,7 @@ header {
         button.setAttribute('data-item-url', product.dataset.url);
         button.setAttribute('data-item-price', product.dataset.price);
         button.setAttribute('data-item-description', product.dataset.description);
+        button.setAttribute('data-item-currency', 'usd');
       });
     });
   });
