@@ -1061,18 +1061,25 @@ header {
   const demoImg = document.getElementById('img-producto-demo');
   const demoBtn = document.getElementById('snipcart-btn-demo');
   const demoTitle = document.getElementById('titulo-producto-demo').innerText;
+  let currentColor = 'Rosado'; // color inicial por defecto
+  let currentImg = demoImg.src;
 
   demoProducto.querySelectorAll('.color-circle').forEach(circle => {
     circle.addEventListener('click', () => {
-      const src = circle.getAttribute('data-src');
-      const color = circle.getAttribute('data-color');
-      demoImg.src = src;
-
-      demoBtn.setAttribute('data-item-name', `${demoTitle} ${color}`);
-      demoBtn.setAttribute('data-item-id', `producto-demo-${color.toLowerCase()}`);
-      demoBtn.setAttribute('data-item-image', src);
+      currentColor = circle.getAttribute('data-color');
+      currentImg = circle.getAttribute('data-src');
+      demoImg.src = currentImg;
     });
   });
+
+  demoBtn.addEventListener('click', () => {
+    const itemId = `producto-demo-${currentColor.toLowerCase()}`;
+    const itemName = `${demoTitle} ${currentColor}`;
+    demoBtn.setAttribute('data-item-id', itemId);
+    demoBtn.setAttribute('data-item-name', itemName);
+    demoBtn.setAttribute('data-item-image', currentImg);
+  });
 </script>
+
 
   
