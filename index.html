@@ -4,30 +4,15 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="
-    default-src 'self';
-    script-src 'self' https://cdn.snipcart.com;
-    style-src 'self' https://cdn.snipcart.com;
-    img-src * data:;
-    connect-src 'self' https://cdn.snipcart.com https://app.snipcart.com;
-    frame-src https://app.snipcart.com;
-    font-src https://cdn.snipcart.com;
-  ">
-
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:; connect-src *;"/>
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Inicio | La Casita del Bebé</title>
-  <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 
-  <!-- Snipcart CSS -->
+   <!-- Snipcart CSS -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
-
-  <!-- ✅ Estilo de Snipcart -->
-  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.css" />
-
-  <!-- ✅ Script de Snipcart -->
-  <script async src="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.js"></script>
   
   <style>
     :root {
@@ -505,9 +490,6 @@
         <li><a href="tienda.html">Tienda</a></li>
         <li><a href="quienes-somos.html">Quiénes Somos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
-        <li><a href="#" class="snipcart-checkout cart-button">🛒 Carrito</a></li>
-        
-        
       </ul>
     </nav>
   </header>
@@ -639,11 +621,5 @@
     setInterval(nextSlide, 5000);
     showSlide(0);
   </script>
-
-<!-- Snipcart Script + Key -->
-  <div hidden id="snipcart" data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz" data-config-modal-style="side"></div>
-  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
-
-
 </body>
 </html>
