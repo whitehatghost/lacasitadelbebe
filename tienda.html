@@ -339,13 +339,11 @@ header {
     id="snipcart-btn-demo"
     class="snipcart-add-item"
     data-item-id="producto-demo"
-    data-item-name="Producto Demo Snipcart"
+    data-item-name="Producto Demo Snipcart - Rosado"
     data-item-price="65000"
     data-item-url="/tienda.html"
     data-item-description="Producto de prueba con opción de color"
-    data-item-image="assets/demo-producto-rosado.jpg"
-    data-item-custom1-name="Color"
-    data-item-custom1-options="Rosado|Gris|Negro">
+    data-item-image="assets/demo-producto-rosado.jpg">
     Agregar al carrito
   </button>
 </div>
@@ -1045,10 +1043,9 @@ header {
       const color = circle.getAttribute('data-color');
       demoImg.src = src;
 
-      demoBtn.setAttribute('data-item-name', `${demoTitle} - ${color}`);
+      demoBtn.setAttribute('data-item-name', `${demoTitle} ${color}`);
       demoBtn.setAttribute('data-item-id', `producto-demo-${color.toLowerCase()}`);
       demoBtn.setAttribute('data-item-image', src);
-      demoBtn.setAttribute('data-item-custom1-options', `${color}`);
     });
   });
 </script>
