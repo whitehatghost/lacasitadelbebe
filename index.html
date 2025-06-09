@@ -1,12 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:; connect-src *;"/>
-  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
-  <meta http-equiv="X-Frame-Options" content="DENY"/>
+   <!-- Agrega esto dentro del <head> para Snipcart -->
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+<script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+<div hidden id="snipcart" data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"></div>
+  
   <title>Inicio | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
@@ -485,13 +484,18 @@
       <span class="nombre-tienda">La Casita del Bebé</span>
     </div>
     <nav>
-      <ul>
-        <li><a href="index.html">Inicio</a></li>
-        <li><a href="tienda.html">Tienda</a></li>
-        <li><a href="quienes-somos.html">Quiénes Somos</a></li>
-        <li><a href="contacto.html">Contacto</a></li>
-      </ul>
-    </nav>
+    <ul>
+      <li><a href="index.html">Inicio</a></li>
+      <li><a href="tienda.html">Tienda</a></li>
+      <li><a href="quienes-somos.html">Quiénes Somos</a></li>
+      <li><a href="contacto.html">Contacto</a></li>
+      <li>
+        <button class="snipcart-checkout cart-button" style="background: #fff; border: none; padding: 5px 15px; border-radius: 8px; font-weight: bold; cursor: pointer;">
+          🛒 Carrito <span class="snipcart-items-count"></span>
+        </button>
+      </li>
+    </ul>
+  </nav>
   </header>
 
   <section class="intro-section">
