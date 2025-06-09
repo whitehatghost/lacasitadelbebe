@@ -16,6 +16,11 @@
   <title>Contacto | La Casita del Bebé</title>
   <link rel="stylesheet" href="style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Snipcart CSS -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+
+  
   <style>
     :root {
       --morado: #b38fd4;
@@ -136,6 +141,14 @@
       color: #333;
       font-size: 0.9rem;
     }
+    .cart-button {
+      background: white;
+      color: #009688;
+      padding: 0.5em 1em;
+      border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+    }
     .payment-banner {
       background-color: #fce3ee;
       padding: 40px 0;
@@ -201,6 +214,7 @@
         <li><a href="tienda.html">Tienda</a></li>
         <li><a href="quienes-somos.html">Quiénes Somos</a></li>
         <li><a href="contacto.html">Contacto</a></li>
+        <li><a href="#" class="snipcart-checkout cart-button">🛒 Carrito</a></li>
       </ul>
     </nav>
   </header>
@@ -266,6 +280,10 @@
     <p>&copy; 2025 La Casita del Bebé. Todos los derechos reservados.<br>
     Creado por <a href="https://instagram.com/hacksincodigos" target="_blank">@hacksincodigos</a></p>
   </footer>
+
+  <!-- Snipcart Script + Key -->
+  <div hidden id="snipcart" data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz" data-config-modal-style="side"></div>
+  <script async src="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.js"></script>
 
   <section class="payment-banner">
     <img src="https://raw.githubusercontent.com/whitehatghost/lacasitadelbebe/main/assets/pagos.jpg" alt="Métodos de Pago" />
