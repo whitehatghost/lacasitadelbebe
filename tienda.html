@@ -325,7 +325,7 @@ header {
 </div>
 
         <!-- Reemplaza un producto con este nuevo código para Snipcart con selector -->
-<div class="producto">
+<div class="producto" id="producto-demo">
   <img id="img-producto-demo" src="assets/demo-producto-rosado.jpg" alt="Producto Demo Bebé" />
   <h3 id="titulo-producto-demo">Producto Demo Snipcart</h3>
   <p>Producto de prueba con integración de carrito.</p>
@@ -338,8 +338,8 @@ header {
   <button
     id="snipcart-btn-demo"
     class="snipcart-add-item"
-    data-item-id="producto-demo"
-    data-item-name="Producto Demo Snipcart - Rosado"
+    data-item-id="producto-demo-rosado"
+    data-item-name="Producto Demo Snipcart Rosado"
     data-item-price="65000"
     data-item-url="/tienda.html"
     data-item-description="Producto de prueba con opción de color"
@@ -1032,8 +1032,8 @@ header {
 </script>
 
 <script>
-  const demoProducto = document.querySelector('.producto');
-  const demoImg = demoProducto.querySelector('img');
+  const demoProducto = document.getElementById('producto-demo');
+  const demoImg = document.getElementById('img-producto-demo');
   const demoBtn = document.getElementById('snipcart-btn-demo');
   const demoTitle = document.getElementById('titulo-producto-demo').innerText;
 
