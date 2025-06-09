@@ -327,7 +327,7 @@ header {
         <!-- Reemplaza un producto con este nuevo código para Snipcart con selector -->
 <div class="producto">
   <img id="img-producto-demo" src="assets/demo-producto-rosado.jpg" alt="Producto Demo Bebé" />
-  <h3>Producto Demo Snipcart</h3>
+  <h3 id="titulo-producto-demo">Producto Demo Snipcart</h3>
   <p>Producto de prueba con integración de carrito.</p>
   <div>
     <span class="color-circle" style="background-color: #ffc0cb" data-color="Rosado" data-src="assets/demo-producto-rosado.jpg"></span>
@@ -336,19 +336,18 @@ header {
   </div>
   <span>₡65,000</span>
   <button
+    id="snipcart-btn-demo"
     class="snipcart-add-item"
     data-item-id="producto-demo"
     data-item-name="Producto Demo Snipcart"
     data-item-price="65000"
     data-item-url="/tienda.html"
     data-item-description="Producto de prueba con opción de color"
-    data-item-image="assets/demo-producto-rosado.jpg"
-    data-item-custom1-name="Color"
-    data-item-custom1-options="Rosado|Gris|Negro">
+    data-item-image="assets/demo-producto-rosado.jpg">
     Agregar al carrito
   </button>
 </div>
-
+        
 <div class="producto">
   <img src="assets/coche-lisa-kid-azul.jpg" alt="Coche Lisa Kid" />
   <h3>Coche Lisa Kid</h3>
@@ -1033,10 +1032,10 @@ header {
 </script>
 
 <script>
-  // Reemplaza imagen dinámica al seleccionar color y actualiza el valor en Snipcart
   const demoProducto = document.querySelector('.producto');
   const demoImg = demoProducto.querySelector('img');
-  const demoBtn = demoProducto.querySelector('button');
+  const demoBtn = document.getElementById('snipcart-btn-demo');
+  const demoTitle = document.getElementById('titulo-producto-demo').innerText;
 
   demoProducto.querySelectorAll('.color-circle').forEach(circle => {
     circle.addEventListener('click', () => {
@@ -1044,8 +1043,9 @@ header {
       const color = circle.getAttribute('data-color');
       demoImg.src = src;
 
-      // Cambia las opciones para que la que seleccione sea la única visible
-      demoBtn.setAttribute('data-item-custom1-options', color);
+      // Cambiar el nombre para que incluya el color
+      demoBtn.setAttribute('data-item-name', `${demoTitle} - ${color}`);
+      demoBtn.setAttribute('data-item-id', `producto-demo-${color.toLowerCase()}`);
       demoBtn.setAttribute('data-item-image', src);
     });
   });
