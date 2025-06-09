@@ -4,7 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
+  <meta http-equiv="Content-Security-Policy" content="
+    default-src 'self';
+    script-src 'self' https://cdn.snipcart.com;
+    style-src 'self' https://cdn.snipcart.com;
+    img-src * data:;
+    connect-src 'self' https://cdn.snipcart.com https://app.snipcart.com;
+    frame-src https://app.snipcart.com;
+    font-src https://cdn.snipcart.com;
+  ">
+
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
@@ -13,6 +22,12 @@
 
   <!-- Snipcart CSS -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
+
+  <!-- ✅ Estilo de Snipcart -->
+  <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.css" />
+
+  <!-- ✅ Script de Snipcart -->
+  <script async src="https://cdn.snipcart.com/themes/v3.5.0/default/snipcart.js"></script>
 
   
   <style>
