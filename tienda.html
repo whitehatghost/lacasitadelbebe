@@ -4,21 +4,29 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+
+  <!-- ✅ Política CSP corregida -->
   <meta http-equiv="Content-Security-Policy" content="
     default-src 'self';
-    script-src 'self' https://cdn.snipcart.com;
-    style-src 'self' https://cdn.snipcart.com;
+    script-src 'self' https://cdn.snipcart.com 'unsafe-eval';
+    style-src 'self' https://cdn.snipcart.com https://fonts.googleapis.com https://fonts.bunny.net 'unsafe-inline';
+    font-src https://fonts.gstatic.com https://cdn.snipcart.com https://fonts.bunny.net;
     img-src * data:;
     connect-src 'self' https://cdn.snipcart.com https://app.snipcart.com;
     frame-src https://app.snipcart.com;
-    font-src https://cdn.snipcart.com;
   ">
 
   <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
   <meta http-equiv="X-Frame-Options" content="DENY"/>
+
   <title>Tienda | La Casita del Bebé</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
+
+  <!-- ✅ Fuentes externas (opcional) -->
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:300,500|Open+Sans:300,600" rel="stylesheet" />
+  <link href="https://fonts.bunny.net/css?family=Montserrat:300,500|Open+Sans:300,600" rel="stylesheet" />
+
 
   <!-- Snipcart CSS -->
   <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.0.31/default/snipcart.css" />
