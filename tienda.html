@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <!-- Agrega esto dentro del <head> para Snipcart -->
+<link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.css" />
+<script async src="https://cdn.snipcart.com/themes/v3.3.0/default/snipcart.js"></script>
+<div hidden id="snipcart" data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"></div>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
-  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline'; img-src * data:;">
-  <meta http-equiv="X-Content-Type-Options" content="nosniff"/>
-  <meta http-equiv="X-Frame-Options" content="DENY"/>
   <title>Tienda | La Casita del Bebé</title>
   <link rel="icon" href="assets/favicon.ico" type="image/x-icon">
   <link rel="stylesheet" href="style.css" />
@@ -320,6 +322,31 @@ header {
   </div>
   <span>₡78,000</span>
   <a href="#" class="btn" target="_blank">Comprar por WhatsApp</a>
+</div>
+
+        <!-- Reemplaza un producto con este nuevo código para Snipcart con selector -->
+<div class="producto">
+  <img id="img-producto-demo" src="assets/demo-producto-rosado.jpg" alt="Producto Demo Bebé" />
+  <h3>Producto Demo Snipcart</h3>
+  <p>Producto de prueba con integración de carrito.</p>
+  <div>
+    <span class="color-circle" style="background-color: #ffc0cb" data-color="Rosado" data-src="assets/demo-producto-rosado.jpg"></span>
+    <span class="color-circle" style="background-color: #808080" data-color="Gris" data-src="assets/demo-producto-gris.jpg"></span>
+    <span class="color-circle" style="background-color: #000000" data-color="Negro" data-src="assets/demo-producto-negro.jpg"></span>
+  </div>
+  <span>₡65,000</span>
+  <button
+    class="snipcart-add-item"
+    data-item-id="producto-demo"
+    data-item-name="Producto Demo Snipcart"
+    data-item-price="65000"
+    data-item-url="/tienda.html"
+    data-item-description="Producto de prueba con opción de color"
+    data-item-image="assets/demo-producto-rosado.jpg"
+    data-item-custom1-name="Color"
+    data-item-custom1-options="Rosado|Gris|Negro">
+    Agregar al carrito
+  </button>
 </div>
 
 <div class="producto">
@@ -1002,6 +1029,25 @@ header {
 
     tab.addEventListener('change', scrollToTab);
     tab.nextElementSibling.addEventListener('click', scrollToTab); // click en la etiqueta del tab
+  });
+</script>
+
+<script>
+  // Reemplaza imagen dinámica al seleccionar color y actualiza el valor en Snipcart
+  const demoProducto = document.querySelector('.producto');
+  const demoImg = demoProducto.querySelector('img');
+  const demoBtn = demoProducto.querySelector('button');
+
+  demoProducto.querySelectorAll('.color-circle').forEach(circle => {
+    circle.addEventListener('click', () => {
+      const src = circle.getAttribute('data-src');
+      const color = circle.getAttribute('data-color');
+      demoImg.src = src;
+
+      // Cambia las opciones para que la que seleccione sea la única visible
+      demoBtn.setAttribute('data-item-custom1-options', color);
+      demoBtn.setAttribute('data-item-image', src);
+    });
   });
 </script>
 
