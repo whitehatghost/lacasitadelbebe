@@ -326,15 +326,20 @@ body.snipcart-show .social-floating-bar {
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
   
+<div hidden id="snipcart"
+     data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
+     data-config-modal-style="side"></div>
+
 <script>
   document.addEventListener("DOMContentLoaded", function () {
     document.addEventListener("snipcart.ready", function () {
-      Snipcart.events.on("checkout.confirmation", () => {
+      Snipcart.events.on("checkout.started", () => {
         setTimeout(() => {
           const footer =
             document.querySelector(".snipcart-checkout__footer") ||
             document.querySelector(".snipcart-cart__footer") ||
             document.querySelector(".snipcart-summary-fees__footer");
+
           if (footer && !footer.querySelector(".custom-disclaimer")) {
             const disclaimer = document.createElement("div");
             disclaimer.className = "custom-disclaimer";
@@ -342,11 +347,12 @@ body.snipcart-show .social-floating-bar {
               "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
             footer.appendChild(disclaimer);
           }
-        }, 800); // espera a que renderice
+        }, 800); // tiempo para que renderice Snipcart
       });
     });
   });
 </script>
+
   
 <body>
 
