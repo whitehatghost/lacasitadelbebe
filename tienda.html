@@ -308,6 +308,18 @@ body.snipcart-show .social-floating-bar {
   pointer-events: none;
   transition: opacity 0.3s ease-in-out;
 }
+    .snipcart-checkout__footer {
+    position: relative;
+  }
+
+  .custom-disclaimer {
+    font-size: 12px;
+    color: #333;
+    margin-top: 10px;
+    text-align: center;
+    line-height: 1.4;
+  }
+</style>
     
   </style>
 </head>
@@ -1265,6 +1277,25 @@ body.snipcart-show .social-floating-bar {
         button.setAttribute('data-item-description', product.dataset.description);
         button.setAttribute('data-item-currency', 'usd');
       });
+    });
+  });
+</script>
+
+//script para resumen
+<script>
+  document.addEventListener('snipcart.ready', () => {
+    Snipcart.events.on('checkout:initialized', () => {
+      const disclaimerText = `
+        <div class="custom-disclaimer">
+          💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>
+          Su banco hace la conversión automáticamente según el tipo de cambio del día.
+        </div>
+      `;
+
+      const footer = document.querySelector('.snipcart-checkout__footer');
+      if (footer && !footer.querySelector('.custom-disclaimer')) {
+        footer.insertAdjacentHTML('beforeend', disclaimerText);
+      }
     });
   });
 </script>
