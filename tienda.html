@@ -11,25 +11,7 @@
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
 
-  <script>
-  document.addEventListener('DOMContentLoaded', function () {
-    const carrito = document.querySelector('.snipcart-checkout');
-    const chatBubble = document.querySelector('.chat-bubble-help');
-    const socialBar = document.querySelector('.social-floating-bar');
-
-    if (carrito) {
-      carrito.addEventListener('click', function () {
-        if (chatBubble) chatBubble.style.display = 'none';
-        if (socialBar) socialBar.style.display = 'none';
-
-        document.addEventListener('snipcart.closed', function () {
-          if (chatBubble) chatBubble.style.display = 'block';
-          if (socialBar) socialBar.style.display = 'flex';
-        });
-      });
-    }
-  });
-</script>
+ 
 
   
   <meta charset="UTF-8" />
