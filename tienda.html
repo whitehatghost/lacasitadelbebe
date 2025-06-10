@@ -1240,29 +1240,7 @@ body.snipcart-show .social-floating-bar {
   </section>
 </body>
 </html>
-  <script>
-    document.querySelectorAll('.producto').forEach(producto => {
-      const img = producto.querySelector('img');
-      const link = producto.querySelector('a.btn');
-      const title = producto.querySelector('h3').innerText;
-      let currentColor = '';
-
-      producto.querySelectorAll('.color-circle').forEach(circle => {
-        circle.addEventListener('click', () => {
-          const newSrc = circle.getAttribute('data-src');
-          currentColor = circle.getAttribute('data-color');
-          img.setAttribute('src', newSrc);
-        });
-      });
-
-      link.addEventListener('click', (e) => {
-        if (currentColor !== '') {
-          const url = `https://wa.me/50684268083?text=Hola,%20quiero%20comprar%20el%20${encodeURIComponent(title)}%20en%20color%20${encodeURIComponent(currentColor)}`;
-          link.setAttribute('href', url);
-        }
-      });
-    });
-  </script>
+  
 
   <script>
   document.querySelectorAll('input[name="tab"]').forEach(tab => {
