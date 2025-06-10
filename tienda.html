@@ -328,39 +328,27 @@ body.snipcart-show .social-floating-bar {
      data-config-modal-style="side"></div>
 
 <script>
-  function agregarDisclaimerUniversal() {
-    const posiblesFooters = document.querySelectorAll(".snipcart-cart__footer, .snipcart-checkout__footer");
+  function agregarDisclaimer() {
+    const buscarYAgregar = () => {
+      const carrito = document.querySelector('.snipcart-cart__footer');
+      const checkout = document.querySelector('.snipcart-checkout__footer');
 
-    posiblesFooters.forEach(footer => {
-      if (footer && !footer.querySelector(".custom-disclaimer")) {
-        const d = document.createElement("div");
-        d.className = "custom-disclaimer";
-        d.style.fontSize = "12px";
-        d.style.color = "#333";
-        d.style.marginTop = "10px";
-        d.style.textAlign = "center";
-        d.style.lineHeight = "1.4";
-        d.innerHTML = "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
-        footer.appendChild(d);
-      }
-    });
+      [carrito, checkout].forEach(footer => {
+        if (footer && !footer.querySelector('.custom-disclaimer')) {
+          const mensaje = document.createElement('div');
+          mensaje.className = 'custom-disclaimer';
+          mensaje.innerHTML = "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
+          footer.appendChild(mensaje);
+        }
+      });
+    };
+
+    Snipcart.events.on('cart.opened', buscarYAgregar);
+    Snipcart.events.on('checkout.started', buscarYAgregar);
+    Snipcart.events.on('checkout.confirmation', buscarYAgregar);
   }
 
-  document.addEventListener("DOMContentLoaded", function () {
-    document.addEventListener("snipcart.ready", function () {
-      const eventos = [
-        "cart.opened",
-        "checkout.started",
-        "checkout.confirmation",
-        "checkout.updated"
-      ];
-      eventos.forEach(e => {
-        Snipcart.events.on(e, () => {
-          setTimeout(agregarDisclaimerUniversal, 500);
-        });
-      });
-    });
-  });
+  document.addEventListener('snipcart.ready', agregarDisclaimer);
 </script>
 
 
