@@ -300,15 +300,21 @@ header {
   .btn-snippet:hover {
     background-color: #87c8f8;
   }
-    body.snipcart-show .chat-bubble-help,
-body.snipcart-show .social-floating-bar {
-  opacity: 0;
-  pointer-events: none;
-  transition: opacity 0.3s ease-in-out;
+    .burbuja-colones {
+  position: fixed;
+  top: 120px;
+  right: 380px; /* Ajustá este valor según tu layout */
+  max-width: 250px;
+  background: #fff3cd;
+  color: #856404;
+  padding: 12px 15px;
+  border: 1px solid #ffeeba;
+  border-radius: 10px;
+  font-size: 13px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  z-index: 9999;
+  font-family: 'Poppins', sans-serif;
 }
-    .snipcart-checkout__footer {
-    position: relative;
-  }
 </style>
     
   </style>
@@ -319,6 +325,41 @@ body.snipcart-show .social-floating-bar {
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
 
+<script>
+  const tipoCambio = 530; // ← Cambialo según el tipo de cambio del día
+
+  function mostrarBurbujaColones() {
+    const carritoAbierto = document.querySelector('.snipcart-cart__footer');
+
+    if (carritoAbierto && !document.querySelector('.burbuja-colones')) {
+      const totalEl = document.querySelector('.snipcart-summary-fees__amount, .snipcart-summary-fees__total');
+      if (!totalEl) return;
+
+      const montoTexto = totalEl.textContent.trim().replace('$', '').replace(',', '');
+      const montoDolares = parseFloat(montoTexto);
+      if (isNaN(montoDolares)) return;
+
+      const montoColones = Math.round(montoDolares * tipoCambio);
+
+      const burbuja = document.createElement('div');
+      burbuja.className = 'burbuja-colones';
+      burbuja.innerHTML = `💡 Este cobro se hace en dólares ($), pero equivale aproximadamente a <strong>₡${montoColones.toLocaleString()}</strong>`;
+      document.body.appendChild(burbuja);
+    }
+  }
+
+  function eliminarBurbujaColones() {
+    const existente = document.querySelector('.burbuja-colones');
+    if (existente) existente.remove();
+  }
+
+  document.addEventListener('snipcart.ready', () => {
+    Snipcart.events.on('cart.opened', () => {
+      setTimeout(mostrarBurbujaColones, 800);
+    });
+    Snipcart.events.on('cart.closed', eliminarBurbujaColones);
+  });
+</script>
 
 
   
