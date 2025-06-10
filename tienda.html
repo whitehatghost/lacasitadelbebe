@@ -309,14 +309,6 @@ body.snipcart-show .social-floating-bar {
     .snipcart-checkout__footer {
     position: relative;
   }
-
-  .custom-disclaimer {
-  font-size: 12px;
-  color: #333;
-  margin-top: 10px;
-  text-align: center;
-  line-height: 1.4;
-}
 </style>
     
   </style>
@@ -326,30 +318,6 @@ body.snipcart-show .social-floating-bar {
 <div hidden id="snipcart"
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
-
-<script>
-  function agregarDisclaimer() {
-    const buscarYAgregar = () => {
-      const carrito = document.querySelector('.snipcart-cart__footer');
-      const checkout = document.querySelector('.snipcart-checkout__footer');
-
-      [carrito, checkout].forEach(footer => {
-        if (footer && !footer.querySelector('.custom-disclaimer')) {
-          const mensaje = document.createElement('div');
-          mensaje.className = 'custom-disclaimer';
-          mensaje.innerHTML = "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
-          footer.appendChild(mensaje);
-        }
-      });
-    };
-
-    Snipcart.events.on('cart.opened', buscarYAgregar);
-    Snipcart.events.on('checkout.started', buscarYAgregar);
-    Snipcart.events.on('checkout.confirmation', buscarYAgregar);
-  }
-
-  document.addEventListener('snipcart.ready', agregarDisclaimer);
-</script>
 
 
 
