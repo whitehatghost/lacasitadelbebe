@@ -1184,54 +1184,6 @@ header {
   </div>
 
 
-
-<script>
-  (function(){
-    const tipoCambio = 600; // tasa de cambio CR
-    const disclaimer = document.getElementById('disclaimer');
-
-    function actualizarColones() {
-      const totalUsd = Snipcart.store.getState().cart.total; // USD
-      const montoCol = Math.round(totalUsd * tipoCambio).toLocaleString();
-      document.getElementById('monto-colones').innerText = '₡' + montoCol;
-    }
-
-    function mostrarDisclaimer() {
-      if (disclaimer) disclaimer.style.opacity = '1';
-    }
-
-    function ocultarDisclaimer() {
-      if (disclaimer) disclaimer.style.opacity = '0';
-    }
-
-    document.addEventListener('snipcart.ready', () => {
-  const tipoCambio = 600;
-  const disclaimer = document.getElementById('disclaimer');
-
-  function actualizarColones() {
-    const totalUsd = Snipcart.store.getState().cart.total;
-    const montoCol = Math.round(totalUsd * tipoCambio).toLocaleString();
-    document.getElementById('monto-colones').innerText = '₡' + montoCol;
-  }
-
-  Snipcart.events.on('cart.opened', () => {
-    disclaimer.style.opacity = '1';
-    actualizarColones();
-  });
-
-  Snipcart.events.on('cart.closed', () => {
-    disclaimer.style.opacity = '0';
-  });
-
-  Snipcart.events.on('cart.updated', () => {
-    actualizarColones();
-  });
-});
-</script>
-
-  
-
-
   
 
   
@@ -1252,9 +1204,7 @@ header {
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
   
- <div class="disclaimer-flotante" id="disclaimer">
-  El total estimado en colones será aproximadamente: <strong id="monto-colones">₡0</strong>
-</div> 
+ 
 </body>
 </html>
   
