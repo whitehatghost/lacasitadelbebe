@@ -336,9 +336,9 @@ body.snipcart-show .social-floating-bar {
       Snipcart.events.on("checkout.started", () => {
         setTimeout(() => {
           const footer =
-            document.querySelector(".snipcart-checkout__footer") ||
-            document.querySelector(".snipcart-cart__footer") ||
-            document.querySelector(".snipcart-summary-fees__footer");
+  document.querySelector(".snipcart-checkout--footer") ||
+  document.querySelector(".snipcart-cart__footer") ||
+  document.querySelector(".snipcart-summary-fees__footer");
 
           if (footer && !footer.querySelector(".custom-disclaimer")) {
             const disclaimer = document.createElement("div");
