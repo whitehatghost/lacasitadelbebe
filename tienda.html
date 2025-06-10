@@ -1283,19 +1283,20 @@ body.snipcart-show .social-floating-bar {
 
 //script para resumen
 <script>
-  document.addEventListener('snipcart.ready', () => {
-    Snipcart.events.on('checkout:initialized', () => {
-      const disclaimerText = `
-        <div class="custom-disclaimer">
-          💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>
-          Su banco hace la conversión automáticamente según el tipo de cambio del día.
-        </div>
-      `;
-
-      const footer = document.querySelector('.snipcart-checkout__footer');
-      if (footer && !footer.querySelector('.custom-disclaimer')) {
-        footer.insertAdjacentHTML('beforeend', disclaimerText);
-      }
+  document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("snipcart.ready", function () {
+      Snipcart.events.on("checkout.confirmation", () => {
+        setTimeout(() => {
+          const footer = document.querySelector(".snipcart-checkout__footer");
+          if (footer && !footer.querySelector(".custom-disclaimer")) {
+            const disclaimer = document.createElement("div");
+            disclaimer.className = "custom-disclaimer";
+            disclaimer.innerHTML =
+              "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
+            footer.appendChild(disclaimer);
+          }
+        }, 500); // Espera para asegurar que Snipcart ya renderizó
+      });
     });
   });
 </script>
