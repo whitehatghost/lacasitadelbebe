@@ -322,46 +322,38 @@ body.snipcart-show .social-floating-bar {
   </style>
 </head>
 
-<div hidden id="snipcart"
-     data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
-     data-config-modal-style="side"></div>
   
 <div hidden id="snipcart"
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
 
 <script>
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("DOMContentLoaded listo");
-    document.addEventListener("snipcart.ready", () => {
-      console.log("snipcart.ready OK");
-      Snipcart.events.on("cart.opened", () => logAndInject("cart.opened"));
-      Snipcart.events.on("checkout.started", () => logAndInject("checkout.started"));
-      Snipcart.events.on("checkout.updated", () => logAndInject("checkout.updated"));
-      Snipcart.events.on("checkout.confirmation", () => logAndInject("checkout.confirmation"));
+  document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("snipcart.ready", function () {
+
+      function insertDisclaimer(selector) {
+        setTimeout(() => {
+          const footer = document.querySelector(selector);
+          if (footer && !footer.querySelector(".custom-disclaimer")) {
+            const disclaimer = document.createElement("div");
+            disclaimer.className = "custom-disclaimer";
+            disclaimer.style.fontSize = "12px";
+            disclaimer.style.color = "#333";
+            disclaimer.style.marginTop = "10px";
+            disclaimer.style.textAlign = "center";
+            disclaimer.innerHTML =
+              "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
+            footer.appendChild(disclaimer);
+            console.log("✅ Disclaimer insertado en", selector);
+          }
+        }, 800);
+      }
+
+      Snipcart.events.on("cart.opened", () => insertDisclaimer(".snipcart-cart__footer"));
+      Snipcart.events.on("checkout.confirmation", () => insertDisclaimer(".snipcart-checkout__footer"));
     });
   });
-
-  function logAndInject(eventName) {
-    console.log("Evento:", eventName);
-    setTimeout(() => {
-      const footer =
-        document.querySelector(".snipcart-checkout__footer") ||
-        document.querySelector(".snipcart-cart__footer") ||
-        document.querySelector(".snipcart-summary-fees__footer");
-
-      console.log("Footer encontrado:", footer);
-      if (footer && !footer.querySelector(".custom-disclaimer")) {
-        const d = document.createElement("div");
-        d.className = "custom-disclaimer";
-        d.innerHTML = "💡 El cobro en la caja se procesa en dólares ($), aunque los precios están en colones (₡).";
-        footer.appendChild(d);
-        console.log("Disclaimer insertado ✅");
-      }
-    }, 800);
-  }
 </script>
-
 
   
 <body>
