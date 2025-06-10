@@ -1206,23 +1206,40 @@ header {
 
 <script>
   (function(){
-    const tipoCambio = 600; // Por ejemplo: 600 colones por dólar. Cambialo según tu tasa.
-    
+    const tipoCambio = 600; // tasa de cambio CR
+    const disclaimer = document.getElementById('disclaimer');
+
     function actualizarColones() {
-      const totalUsd = Snipcart.store.getState().cart.total; // total en USD
+      const totalUsd = Snipcart.store.getState().cart.total; // USD
       const montoCol = Math.round(totalUsd * tipoCambio).toLocaleString();
       document.getElementById('monto-colones').innerText = '₡' + montoCol;
     }
 
+    function mostrarDisclaimer() {
+      if (disclaimer) disclaimer.style.opacity = '1';
+    }
+
+    function ocultarDisclaimer() {
+      if (disclaimer) disclaimer.style.opacity = '0';
+    }
+
     document.addEventListener('snipcart.ready', () => {
-      ['cart.opened', 'cart.updated', 'checkout.started'].forEach(ev =>
-        Snipcart.events.on(ev, () => {
-           setTimeout(actualizarColones, 500);
-        })
-      );
+      Snipcart.events.on('cart.opened', () => {
+        actualizarColones();
+        mostrarDisclaimer();
+      });
+
+      Snipcart.events.on('cart.closed', () => {
+        ocultarDisclaimer();
+      });
+
+      Snipcart.events.on('cart.updated', () => {
+        actualizarColones();
+      });
     });
   })();
 </script>
+
   
 
 
