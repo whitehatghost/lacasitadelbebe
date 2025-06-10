@@ -311,12 +311,12 @@ body.snipcart-show .social-floating-bar {
   }
 
   .custom-disclaimer {
-    font-size: 12px;
-    color: #333;
-    margin-top: 10px;
-    text-align: center;
-    line-height: 1.4;
-  }
+  font-size: 12px;
+  color: #333;
+  margin-top: 10px;
+  text-align: center;
+  line-height: 1.4;
+}
 </style>
     
   </style>
@@ -328,32 +328,37 @@ body.snipcart-show .social-floating-bar {
      data-config-modal-style="side"></div>
 
 <script>
-  function insertarDisclaimer() {
-    const botonPagar = document.querySelector('.snipcart-button-primary');
-    
-    if (botonPagar && !document.querySelector('.custom-disclaimer')) {
-      const disclaimer = document.createElement('div');
-      disclaimer.className = 'custom-disclaimer';
-      disclaimer.style.fontSize = '12px';
-      disclaimer.style.color = '#333';
-      disclaimer.style.marginTop = '10px';
-      disclaimer.style.textAlign = 'center';
-      disclaimer.style.lineHeight = '1.4';
-      disclaimer.style.backgroundColor = '#f0f0f0';
-      disclaimer.style.borderRadius = '8px';
-      disclaimer.style.padding = '10px';
-      disclaimer.innerHTML = "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
-      
-      botonPagar.parentElement.appendChild(disclaimer);
-      console.log("✅ Disclaimer insertado.");
-    }
+  function agregarDisclaimerUniversal() {
+    const posiblesFooters = document.querySelectorAll(".snipcart-cart__footer, .snipcart-checkout__footer");
+
+    posiblesFooters.forEach(footer => {
+      if (footer && !footer.querySelector(".custom-disclaimer")) {
+        const d = document.createElement("div");
+        d.className = "custom-disclaimer";
+        d.style.fontSize = "12px";
+        d.style.color = "#333";
+        d.style.marginTop = "10px";
+        d.style.textAlign = "center";
+        d.style.lineHeight = "1.4";
+        d.innerHTML = "💡 El cobro final se procesa en <strong>dólares ($)</strong>, aunque los precios están en colones (₡).<br>Su banco hace la conversión automáticamente según el tipo de cambio del día.";
+        footer.appendChild(d);
+      }
+    });
   }
 
-  document.addEventListener("DOMContentLoaded", () => {
-    document.addEventListener("snipcart.ready", () => {
-      ["cart.opened", "checkout.started", "checkout.confirmation", "checkout.updated"].forEach(event =>
-        Snipcart.events.on(event, () => setTimeout(insertarDisclaimer, 800))
-      );
+  document.addEventListener("DOMContentLoaded", function () {
+    document.addEventListener("snipcart.ready", function () {
+      const eventos = [
+        "cart.opened",
+        "checkout.started",
+        "checkout.confirmation",
+        "checkout.updated"
+      ];
+      eventos.forEach(e => {
+        Snipcart.events.on(e, () => {
+          setTimeout(agregarDisclaimerUniversal, 500);
+        });
+      });
     });
   });
 </script>
