@@ -1224,20 +1224,28 @@ header {
     }
 
     document.addEventListener('snipcart.ready', () => {
-      Snipcart.events.on('cart.opened', () => {
-        actualizarColones();
-        mostrarDisclaimer();
-      });
+  const tipoCambio = 600;
+  const disclaimer = document.getElementById('disclaimer');
 
-      Snipcart.events.on('cart.closed', () => {
-        ocultarDisclaimer();
-      });
+  function actualizarColones() {
+    const totalUsd = Snipcart.store.getState().cart.total;
+    const montoCol = Math.round(totalUsd * tipoCambio).toLocaleString();
+    document.getElementById('monto-colones').innerText = '₡' + montoCol;
+  }
 
-      Snipcart.events.on('cart.updated', () => {
-        actualizarColones();
-      });
-    });
-  })();
+  Snipcart.events.on('cart.opened', () => {
+    disclaimer.style.opacity = '1';
+    actualizarColones();
+  });
+
+  Snipcart.events.on('cart.closed', () => {
+    disclaimer.style.opacity = '0';
+  });
+
+  Snipcart.events.on('cart.updated', () => {
+    actualizarColones();
+  });
+});
 </script>
 
   
