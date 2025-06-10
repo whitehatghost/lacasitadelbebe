@@ -300,21 +300,26 @@ header {
   .btn-snippet:hover {
     background-color: #87c8f8;
   }
-    .burbuja-colones {
-  position: fixed;
-  top: 120px;
-  right: 380px; /* Ajustá este valor según tu layout */
-  max-width: 250px;
-  background: #fff3cd;
-  color: #856404;
-  padding: 12px 15px;
-  border: 1px solid #ffeeba;
-  border-radius: 10px;
-  font-size: 13px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  z-index: 9999;
-  font-family: 'Poppins', sans-serif;
-}
+    .disclaimer-flotante {
+    position: fixed;
+    bottom: 180px;
+    right: 20px;
+    max-width: 260px;
+    background: #fff3b0;
+    color: #4c3f63;
+    border-radius: 12px;
+    padding: 12px;
+    font-size: 0.9rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    z-index: 10000;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+  }
+
+  body.snipcart-show .disclaimer-flotante {
+    opacity: 1;
+  }
 </style>
     
   </style>
@@ -1198,45 +1203,37 @@ header {
   </div>
 
 
-  <script>
-  const tipoCambio = 530; // ← Cambialo según el tipo de cambio del día
+  <div class="disclaimer-flotante" id="disclaimer">
+  El total estimado en colones será aproximadamente: <strong id="monto-colones">₡0</strong>
+</div>
 
-  function mostrarBurbujaColones() {
-    const carritoAbierto = document.querySelector('.snipcart-cart__footer');
-
-    if (carritoAbierto && !document.querySelector('.burbuja-colones')) {
-      const totalEl = document.querySelector('.snipcart-summary-fees__amount, .snipcart-summary-fees__total');
-      if (!totalEl) return;
-
-      const montoTexto = totalEl.textContent.trim().replace('$', '').replace(',', '');
-      const montoDolares = parseFloat(montoTexto);
-      if (isNaN(montoDolares)) return;
-
-      const montoColones = Math.round(montoDolares * tipoCambio);
-
-      const burbuja = document.createElement('div');
-      burbuja.className = 'burbuja-colones';
-      burbuja.innerHTML = `💡 Este cobro se hace en dólares ($), pero equivale aproximadamente a <strong>₡${montoColones.toLocaleString()}</strong>`;
-      document.body.appendChild(burbuja);
+<script>
+  (function(){
+    const tipoCambio = 600; // Por ejemplo: 600 colones por dólar. Cambialo según tu tasa.
+    
+    function actualizarColones() {
+      const totalUsd = Snipcart.store.getState().cart.total; // total en USD
+      const montoCol = Math.round(totalUsd * tipoCambio).toLocaleString();
+      document.getElementById('monto-colones').innerText = '₡' + montoCol;
     }
-  }
 
-  function eliminarBurbujaColones() {
-    const existente = document.querySelector('.burbuja-colones');
-    if (existente) existente.remove();
-  }
-
-  document.addEventListener('snipcart.ready', () => {
-    Snipcart.events.on('cart.opened', () => {
-      setTimeout(mostrarBurbujaColones, 800);
+    document.addEventListener('snipcart.ready', () => {
+      ['cart.opened', 'cart.updated', 'checkout.started'].forEach(ev =>
+        Snipcart.events.on(ev, () => {
+           setTimeout(actualizarColones, 500);
+        })
+      );
     });
-    Snipcart.events.on('cart.closed', eliminarBurbujaColones);
-  });
+  })();
 </script>
   
 <div hidden id="snipcart"
      data-api-key="ZGE4NjAzNDEtOTI4NS00Zjg4LTk3MzItMjdmZGYxMTk3ZjUxNjM4ODQ3NDkxODY0MzUwNjcz"
      data-config-modal-style="side"></div>
+
+  <div class="disclaimer-flotante" id="disclaimer">
+  El total estimado en colones será aproximadamente: <strong id="monto-colones">₡0</strong>
+</div>
 
   
   <footer>
